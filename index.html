@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LASHARI X — Digital Creative Studio</title>
+    <meta name="description" content="LASHARI X is a digital creative studio in Pakistan building premium social campaigns, cinematic video content, and high-converting web experiences." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              obsidian: '#070709',
+              charcoal: '#0F0F13',
+              surface: '#15151C',
+              violetAccent: '#8A2BE2',
+              cyberCyan: '#00F0FF',
+              champagne: '#E6C594',
+              magentaAccent: '#FF007A',
+            },
+            fontFamily: {
+              syne: ['Syne', 'sans-serif'],
+              sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+              mono: ['"JetBrains Mono"', 'monospace'],
+            }
+          }
+        }
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      html { scroll-behavior: smooth; }
+      body {
+        background:
+          radial-gradient(circle at top, rgba(138, 43, 226, 0.14), transparent 24%),
+          linear-gradient(180deg, #070709 0%, #0f0f13 100%);
+      }
+      .glass-card {
+        background: rgba(21, 21, 28, 0.72);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border: 1px solid rgba(255,255,255,0.08);
+      }
+      .text-outline {
+        -webkit-text-stroke: 1px rgba(255,255,255,0.22);
+        color: transparent;
+      }
+      .bg-grain {
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' fill='%23070709'/%3E%3Crect width='200' height='200' fill='%23ffffff' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+        background-size: 180px 180px;
+        opacity: 0.18;
+      }
+    </style>
+  </head>
+  <body class="bg-obsidian text-slate-100 font-sans antialiased relative overflow-x-hidden">
+    <div class="fixed inset-0 bg-grain pointer-events-none z-50"></div>
+
+    <header class="fixed top-0 left-0 right-0 z-40 px-6 py-5 md:px-12">
+      <div class="max-w-7xl mx-auto flex items-center justify-between">
+        <a href="#hero" class="flex items-center space-x-2 text-xl font-syne font-bold tracking-wider">
+          <span class="text-white">LASHARI</span>
+          <span class="inline-block bg-violetAccent text-obsidian px-1.5 py-0.5 rounded text-sm font-black">X</span>
+        </a>
+
+        <nav class="hidden md:flex items-center space-x-8 text-xs font-mono uppercase tracking-[0.2em] text-slate-300">
+          <a href="#work" class="hover:text-cyberCyan transition-colors">Work</a>
+          <a href="#services" class="hover:text-cyberCyan transition-colors">Services</a>
+          <a href="#about" class="hover:text-cyberCyan transition-colors">About</a>
+          <a href="#contact" class="hover:text-cyberCyan transition-colors">Contact</a>
+        </nav>
+
+        <a href="https://wa.me/923196971470" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-slate-200 hover:border-violetAccent/50 transition-colors">
+          <span>Let's Talk</span>
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <section id="hero" class="relative min-h-screen flex items-center justify-center px-6 pt-28 pb-14">
+        <div class="absolute inset-0 bg-radial from-transparent via-obsidian/70 to-obsidian pointer-events-none"></div>
+        <div class="relative z-10 max-w-5xl text-center">
+          <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 mb-8">
+            <span class="h-2 w-2 rounded-full bg-cyberCyan animate-pulse"></span>
+            <span class="font-mono text-[10px] uppercase tracking-[0.25em] text-slate-300">Digital Creative Studio</span>
+          </div>
+
+          <h1 class="font-syne text-5xl font-extrabold uppercase tracking-tight sm:text-7xl md:text-9xl leading-none">
+            <span class="block text-white">LASHARI</span>
+            <span class="block bg-gradient-to-r from-violetAccent via-cyberCyan to-champagne bg-clip-text text-transparent mt-[-10px]">X</span>
+          </h1>
+
+          <p class="mx-auto mt-6 max-w-xl text-base text-slate-300 sm:text-xl">
+            Digital experiences. <span class="text-white font-medium italic">Built to be remembered.</span>
+          </p>
+
+          <div class="mt-10 flex flex-wrap justify-center gap-3 font-mono text-[10px] uppercase tracking-[0.25em] text-slate-400">
+            <span class="rounded-full border border-white/10 px-3 py-2">Social</span>
+            <span class="rounded-full border border-white/10 px-3 py-2">Video</span>
+            <span class="rounded-full border border-white/10 px-3 py-2">Web</span>
+          </div>
+
+          <div class="mt-12 flex justify-center">
+            <a href="#contact" class="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-violetAccent to-cyberCyan px-6 py-3 font-syne font-bold uppercase tracking-wide text-obsidian transition-transform hover:scale-[1.02]">
+              Book a project
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="work" class="relative z-10 max-w-7xl mx-auto px-6 py-20">
+        <div class="mb-10">
+          <div class="font-mono text-xs uppercase tracking-[0.25em] text-violetAccent">// 01 — Selected works</div>
+          <h2 class="mt-3 font-syne text-4xl font-extrabold uppercase tracking-tight text-white sm:text-5xl">Portfolio Universe</h2>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-2">
+          <article class="glass-card overflow-hidden rounded-3xl">
+            <div class="aspect-video overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop" alt="AETHERIA digital realm" class="h-full w-full object-cover" />
+            </div>
+            <div class="p-6">
+              <h3 class="font-syne text-2xl font-bold text-white">AETHERIA DIGITAL REALM</h3>
+              <p class="mt-3 text-sm text-slate-400">Interactive 3D luxury WebGL platform for next-gen digital fashion exhibition.</p>
+            </div>
+          </article>
+
+          <article class="glass-card overflow-hidden rounded-3xl">
+            <div class="aspect-video overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=1200&auto=format&fit=crop" alt="Neon Velocity Campaign" class="h-full w-full object-cover" />
+            </div>
+            <div class="p-6">
+              <h3 class="font-syne text-2xl font-bold text-white">NEON VELOCITY CAMPAIGN</h3>
+              <p class="mt-3 text-sm text-slate-400">Cinematic brand film and viral short-form sequence for a luxury automotive launch.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="services" class="relative z-10 max-w-7xl mx-auto px-6 py-20">
+        <div class="mb-10">
+          <div class="font-mono text-xs uppercase tracking-[0.25em] text-cyberCyan">// 02 — Core disciplines</div>
+          <h2 class="mt-3 font-syne text-4xl font-extrabold uppercase tracking-tight text-white sm:text-5xl">Three immersive worlds</h2>
+        </div>
+
+        <div class="grid gap-8 lg:grid-cols-3">
+          <div class="glass-card rounded-3xl p-8">
+            <span class="font-mono text-xs uppercase tracking-[0.25em] text-violetAccent">World 01</span>
+            <h3 class="mt-4 font-syne text-3xl font-extrabold text-white">Social</h3>
+            <p class="mt-4 text-sm text-slate-400">Luxury social experiences engineered to drive attention, engagement, and conversion.</p>
+          </div>
+
+          <div class="glass-card rounded-3xl p-8">
+            <span class="font-mono text-xs uppercase tracking-[0.25em] text-cyberCyan">World 02</span>
+            <h3 class="mt-4 font-syne text-3xl font-extrabold text-white">Video</h3>
+            <p class="mt-4 text-sm text-slate-400">Cinematic editing, motion graphics, and premium brand storytelling designed to command attention.</p>
+          </div>
+
+          <div class="glass-card rounded-3xl p-8">
+            <span class="font-mono text-xs uppercase tracking-[0.25em] text-champagne">World 03</span>
+            <h3 class="mt-4 font-syne text-3xl font-extrabold text-white">Web</h3>
+            <p class="mt-4 text-sm text-slate-400">High-performance web experiences with design clarity, speed, and conversion-focused UX.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="relative z-10 max-w-7xl mx-auto px-6 py-20">
+        <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div class="rounded-[28px] border border-white/10 bg-surface p-4">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=900&auto=format&fit=crop" alt="Rahmat Lashari" class="w-full rounded-2xl object-cover" />
+          </div>
+
+          <div>
+            <div class="font-mono text-xs uppercase tracking-[0.25em] text-champagne">// 03 — Behind the X</div>
+            <h2 class="mt-3 font-syne text-4xl font-extrabold uppercase tracking-tight text-white sm:text-5xl">
+              Digital architect.<br />
+              <span class="text-outline">Storyteller.</span>
+            </h2>
+            <p class="mt-6 text-base text-slate-300 leading-relaxed">
+              LASHARI X is an elite digital creative studio operating from Pakistan to clients globally. We build premium social campaigns, cinematic video content, and conversion-first web experiences that leave a lasting mark.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="relative z-10 max-w-7xl mx-auto px-6 py-20">
+        <div class="relative overflow-hidden rounded-[28px] border border-white/10 bg-charcoal/80 px-6 py-8 md:px-10 md:py-12">
+          <div class="absolute -top-16 right-0 h-52 w-52 rounded-full bg-violetAccent/20 blur-3xl"></div>
+          <div class="absolute bottom-0 left-0 h-40 w-40 rounded-full bg-cyan-500/10 blur-3xl"></div>
+
+          <div class="relative z-10 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+            <div class="space-y-6">
+              <div class="font-mono text-xs uppercase tracking-[0.25em] text-cyberCyan">// Contact</div>
+              <h2 class="font-syne text-4xl font-extrabold uppercase tracking-tight text-white md:text-6xl">
+                Let's build something
+                <span class="text-outline block md:inline">worth remembering.</span>
+              </h2>
+              <p class="max-w-xl text-base text-slate-300 md:text-lg">
+                Ready to turn your idea into a high-converting digital experience? Tell us about your project and we’ll reach out with the next steps.
+              </p>
+            </div>
+
+            <div class="glass-card rounded-3xl p-5 md:p-7">
+              <div class="mb-5 flex items-center justify-between">
+                <h3 class="font-syne text-2xl font-bold uppercase text-white">Start a project</h3>
+                <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-cyberCyan">Reply within 24h</span>
+              </div>
+
+              <form id="contactForm" class="space-y-5" novalidate>
+                <div>
+                  <label for="name" class="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-slate-400">Name</label>
+                  <input id="name" name="name" type="text" required placeholder="Your name" class="w-full rounded-2xl border border-white/10 bg-slate-950/50 px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:border-cyberCyan focus:outline-none" />
+                </div>
+
+                <div>
+                  <label for="email" class="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-slate-400">Email</label>
+                  <input id="email" name="email" type="email" required placeholder="you@example.com" class="w-full rounded-2xl border border-white/10 bg-slate-950/50 px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:border-cyberCyan focus:outline-none" />
+                </div>
+
+                <div>
+                  <label for="service" class="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-slate-400">Service</label>
+                  <select id="service" name="service" class="w-full rounded-2xl border border-white/10 bg-slate-950/50 px-4 py-3 text-sm text-white focus:border-cyberCyan focus:outline-none">
+                    <option value="Social campaign strategy">Social campaign strategy</option>
+                    <option value="Video editing & reels">Video editing & reels</option>
+                    <option value="Web development">Web development</option>
+                    <option value="Brand identity">Brand identity</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="message" class="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-slate-400">Project brief</label>
+                  <textarea id="message" name="message" rows="5" required placeholder="Tell us about your goals, timeframe, and what you need created..." class="w-full rounded-2xl border border-white/10 bg-slate-950/50 px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:border-cyberCyan focus:outline-none resize-none"></textarea>
+                </div>
+
+                <button type="submit" class="inline-flex w-full items-center justify-center rounded-2xl bg-gradient-to-r from-violetAccent via-purple-500 to-cyan-500 px-5 py-3 font-syne font-bold uppercase tracking-wide text-white transition-transform hover:scale-[1.01]">
+                  Send project brief
+                </button>
+
+                <p id="form-status" class="min-h-[20px] text-sm text-slate-300"></p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <a href="https://wa.me/923196971470" target="_blank" rel="noopener" class="fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500 text-obsidian shadow-2xl transition-transform hover:scale-110">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H7l-4 4V11.5A8.5 8.5 0 0 1 11.5 3a8.5 8.5 0 0 1 9.5 8.5Z"/></svg>
+    </a>
+
+    <script>
+      const form = document.getElementById('contactForm');
+      const status = document.getElementById('form-status');
+
+      form?.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const service = document.getElementById('service').value;
+        const message = document.getElementById('message').value.trim();
+
+        if (!name || !email || !message) {
+          status.textContent = 'Please fill out your name, email, and project brief.';
+          status.style.color = '#FCA5A5';
+          return;
+        }
+
+        const subject = encodeURIComponent(`New project inquiry from ${name} — ${service}`);
+        const body = encodeURIComponent(
+          `Name: ${name}\nEmail: ${email}\nService: ${service}\n\nProject brief:\n${message}`
+        );
+
+        window.location.href = `mailto:lashari0923@gmail.com?subject=${subject}&body=${body}`;
+        status.textContent = 'Your email app is ready. Thanks — we\'ll get back to you soon.';
+        status.style.color = '#7DD3FC';
+        form.reset();
+      });
+    </script>
+  </body>
+</html>
