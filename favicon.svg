@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">LASHARI X favicon</title>
+  <desc id="desc">Monogram LX in a dark premium style.</desc>
+  <defs>
+    <linearGradient id="g" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#8A2BE2"/>
+      <stop offset="50%" stop-color="#00F0FF"/>
+      <stop offset="100%" stop-color="#E6C594"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="#070709"/>
+  <path d="M35 26h18v46h26v18H35V26Zm41 0h20v71H76V44H54V26h22Z" fill="url(#g)"/>
+  <circle cx="98" cy="92" r="9" fill="#00F0FF" opacity="0.9"/>
+</svg>
