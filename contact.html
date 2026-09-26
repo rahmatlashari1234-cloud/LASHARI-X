@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact — LASHARI X</title>
+    <meta name="description" content="Contact LASHARI X for your next social, video, or web project." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              obsidian: '#070709',
+              charcoal: '#0F0F13',
+              surface: '#15151C',
+              violetAccent: '#8A2BE2',
+              cyberCyan: '#00F0FF',
+              champagne: '#E6C594',
+              magentaAccent: '#FF007A',
+            },
+            fontFamily: {
+              syne: ['Syne', 'sans-serif'],
+              sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+              mono: ['"JetBrains Mono"', 'monospace'],
+            },
+          }
+        }
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      body {
+        background:
+          radial-gradient(circle at top, rgba(138, 43, 226, 0.14), transparent 30%),
+          linear-gradient(180deg, #070709 0%, #0f0f13 100%);
+      }
+      .glass-card {
+        background: rgba(21, 21, 28, 0.7);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255,255,255,0.08);
+      }
+      .text-outline {
+        -webkit-text-stroke: 1px rgba(255,255,255,0.22);
+        color: transparent;
+      }
+    </style>
+  </head>
+  <body class="font-sans text-slate-100 antialiased">
+    <main class="max-w-7xl mx-auto px-6 py-16 md:py-24">
+      <section id="contact" class="relative overflow-hidden rounded-[28px] border border-white/10 bg-charcoal/70 px-6 py-8 md:px-10 md:py-10">
+        <div class="absolute -top-16 right-0 h-52 w-52 rounded-full bg-violetAccent/20 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 h-40 w-40 rounded-full bg-cyan-500/10 blur-3xl"></div>
+
+        <div class="relative z-10">
+          <div class="inline-flex items-center space-x-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5">
+            <span class="h-2 w-2 rounded-full bg-violetAccent"></span>
+            <span class="font-mono text-[10px] uppercase tracking-[0.25em] text-slate-300">Available for global projects</span>
+          </div>
+
+          <div class="mt-8 grid grid-cols-1 gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+            <div class="space-y-6">
+              <div class="font-mono text-xs uppercase tracking-[0.25em] text-cyberCyan">// Contact</div>
+              <h1 class="font-syne text-4xl font-extrabold uppercase tracking-tight text-white md:text-6xl">
+                Let’s build something
+                <span class="text-outline block md:inline">worth remembering.</span>
+              </h1>
+              <p class="max-w-xl text-base text-slate-300 md:text-lg">
+                Ready to transform your brand into a high-converting digital spectacle? Tell us about your project and we’ll reach out with the next steps.
+              </p>
+
+              <div class="flex flex-col gap-4 pt-4 text-sm text-slate-300 sm:flex-row sm:flex-wrap">
+                <a href="https://wa.me/923196971470" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-violetAccent to-cyberCyan px-5 py-3 font-syne font-bold text-obsidian transition-transform hover:scale-[1.02]">
+                  <span>WhatsApp</span>
+                </a>
+                <a href="mailto:lashari0923@gmail.com" class="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-3 font-syne font-bold text-white transition-colors hover:border-violetAccent/60 hover:bg-white/10">
+                  Email Us
+                </a>
+              </div>
+            </div>
+
+            <div class="glass-card rounded-3xl p-5 md:p-7">
+              <div class="mb-5 flex items-center justify-between">
+                <h2 class="font-syne text-2xl font-bold uppercase text-white">Start a project</h2>
+                <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-cyberCyan">Reply within 24h</span>
+              </div>
+
+              <form id="contactForm" class="space-y-5 text-left" novalidate>
+                <div>
+                  <label for="name" class="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-slate-400">Name</label>
+                  <input id="name" name="name" type="text" required placeholder="Your name" class="w-full rounded-2xl border border-white/10 bg-slate-950/50 px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:border-cyberCyan focus:outline-none" />
+                </div>
+
+                <div>
+                  <label for="email" class="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-slate-400">Email</label>
+                  <input id="email" name="email" type="email" required placeholder="you@example.com" class="w-full rounded-2xl border border-white/10 bg-slate-950/50 px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:border-cyberCyan focus:outline-none" />
+                </div>
+
+                <div>
+                  <label for="service" class="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-slate-400">Service</label>
+                  <select id="service" name="service" class="w-full rounded-2xl border border-white/10 bg-slate-950/50 px-4 py-3 text-sm text-white focus:border-cyberCyan focus:outline-none">
+                    <option value="Social campaign strategy">Social campaign strategy</option>
+                    <option value="Video editing & reels">Video editing & reels</option>
+                    <option value="Web development">Web development</option>
+                    <option value="Brand identity">Brand identity</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="message" class="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-slate-400">Project brief</label>
+                  <textarea id="message" name="message" rows="5" required placeholder="Tell us about your goals, timeframe, and what you need created..." class="w-full rounded-2xl border border-white/10 bg-slate-950/50 px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:border-cyberCyan focus:outline-none"></textarea>
+                </div>
+
+                <button type="submit" class="inline-flex w-full items-center justify-center rounded-2xl bg-gradient-to-r from-violetAccent via-purple-500 to-cyan-500 px-5 py-3 font-syne font-bold uppercase tracking-wide text-white transition-transform hover:scale-[1.01]">
+                  Send project brief
+                </button>
+
+                <p id="form-status" class="min-h-[20px] text-sm text-slate-300"></p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const form = document.getElementById('contactForm');
+      const status = document.getElementById('form-status');
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const service = document.getElementById('service').value;
+        const message = document.getElementById('message').value.trim();
+
+        if (!name || !email || !message) {
+          status.textContent = 'Please fill out your name, email, and project brief.';
+          status.style.color = '#FCA5A5';
+          return;
+        }
+
+        const subject = encodeURIComponent(`New project inquiry from ${name} — ${service}`);
+        const body = encodeURIComponent(
+          `Name: ${name}\nEmail: ${email}\nService: ${service}\n\nProject brief:\n${message}`
+        );
+
+        window.location.href = `mailto:lashari0923@gmail.com?subject=${subject}&body=${body}`;
+        status.textContent = 'Your email app is ready. Thanks — we’ll get back to you soon.';
+        status.style.color = '#7DD3FC';
+        form.reset();
+      });
+    </script>
+  </body>
+</html>
