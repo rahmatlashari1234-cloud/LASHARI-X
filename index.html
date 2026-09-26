@@ -3,14 +3,89 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LASHARI X — Digital Creative Studio</title>
+    <title>LASHARI X — Digital Creative Studio | Social, Video & Web</title>
     <meta name="description" content="LASHARI X is a digital creative studio in Pakistan building premium social campaigns, cinematic video content, and high-converting web experiences." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="author" content="Rahmat Lashari" />
+    <meta name="keywords" content="LASHARI X, digital creative studio, social media agency, video editing, web development, Pakistan creative studio, brand storytelling" />
+    <meta name="theme-color" content="#070709" />
+    <meta property="og:title" content="LASHARI X — Digital Creative Studio" />
+    <meta property="og:description" content="Premium social, video, and web experiences built to be remembered." />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="LASHARI X" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://raw.githubusercontent.com/rahmatlashari1234-cloud/LASHARI-X/main/og-image.svg" />
+    <meta property="og:image:alt" content="LASHARI X digital creative studio" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="LASHARI X — Digital Creative Studio" />
+    <meta property="twitter:description" content="Social, video, and web experiences built to be remembered." />
+    <meta property="twitter:image" content="https://raw.githubusercontent.com/rahmatlashari1234-cloud/LASHARI-X/main/og-image.svg" />
+    <meta property="twitter:creator" content="@lasharix" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href="https://lasharix.com/" />
+    <link rel="alternate" hreflang="en" href="https://lasharix.com/" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "name": "LASHARI X",
+            "url": "https://lasharix.com/",
+            "logo": "https://raw.githubusercontent.com/rahmatlashari1234-cloud/LASHARI-X/main/favicon.svg",
+            "founder": {
+              "@type": "Person",
+              "name": "Rahmat Lashari"
+            },
+            "sameAs": [
+              "https://wa.me/923196971470",
+              "mailto:lashari0923@gmail.com"
+            ],
+            "email": "lashari0923@gmail.com",
+            "telephone": "+92-319-6971470",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "PK",
+              "addressLocality": "Rawalpindi"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "name": "LASHARI X",
+            "url": "https://lasharix.com/",
+            "description": "Digital creative studio for social, video, and web experiences.",
+            "inLanguage": "en",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://lasharix.com/?q={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          }
+        ]
+      }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
     <script>
       tailwind.config = {
         darkMode: 'class',
         theme: {
           extend: {
+            fontFamily: {
+              syne: ['Syne', 'sans-serif'],
+              sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+              mono: ['"JetBrains Mono"', 'monospace'],
+            },
             colors: {
               obsidian: '#070709',
               charcoal: '#0F0F13',
@@ -20,209 +95,452 @@
               champagne: '#E6C594',
               magentaAccent: '#FF007A',
             },
-            fontFamily: {
-              syne: ['Syne', 'sans-serif'],
-              sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-              mono: ['"JetBrains Mono"', 'monospace'],
+            animation: {
+              'spin-slow': 'spin 20s linear infinite',
+              'pulse-subtle': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
             }
           }
         }
       };
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
     <style>
-      html { scroll-behavior: smooth; }
-      body {
-        background:
-          radial-gradient(circle at top, rgba(138, 43, 226, 0.14), transparent 24%),
-          linear-gradient(180deg, #070709 0%, #0f0f13 100%);
-      }
-      .glass-card {
-        background: rgba(21, 21, 28, 0.72);
-        backdrop-filter: blur(18px);
-        -webkit-backdrop-filter: blur(18px);
-        border: 1px solid rgba(255,255,255,0.08);
-      }
-      .text-outline {
-        -webkit-text-stroke: 1px rgba(255,255,255,0.22);
-        color: transparent;
-      }
+      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar-track { background: #070709; }
+      ::-webkit-scrollbar-thumb { background: #262633; border-radius: 3px; }
+      ::-webkit-scrollbar-thumb:hover { background: #8A2BE2; }
+
       .bg-grain {
         background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' fill='%23070709'/%3E%3Crect width='200' height='200' fill='%23ffffff' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
         background-size: 180px 180px;
         opacity: 0.18;
       }
+
+      @media (pointer: fine) { body { cursor: none; } }
+      .custom-cursor {
+        pointer-events: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, transform 0.15s ease-out;
+      }
+
+      .text-outline { -webkit-text-stroke: 1px rgba(255,255,255,0.2); color: transparent; }
+      .glass-card {
+        background: rgba(21, 21, 28, 0.6);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255,255,255,0.07);
+      }
+      .lx-glow { filter: drop-shadow(0 0 20px rgba(138, 43, 226, 0.4)); }
+
+      :focus-visible {
+        outline: 2px solid #00F0FF;
+        outline-offset: 4px;
+        border-radius: 0.5rem;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
     </style>
   </head>
-  <body class="bg-obsidian text-slate-100 font-sans antialiased relative overflow-x-hidden">
+  <body class="bg-obsidian text-slate-100 font-sans selection:bg-violetAccent selection:text-white relative overflow-x-hidden antialiased">
     <div class="fixed inset-0 bg-grain pointer-events-none z-50"></div>
 
-    <header class="fixed top-0 left-0 right-0 z-40 px-6 py-5 md:px-12">
+    <div id="cursor-dot" class="custom-cursor w-3 h-3 bg-white rounded-full mix-blend-difference hidden md:block"></div>
+    <div id="cursor-follower" class="custom-cursor w-10 h-10 border border-white/40 rounded-full hidden md:flex items-center justify-center text-[9px] font-mono tracking-widest text-white uppercase">
+      <span id="cursor-text" class="opacity-0 transition-opacity duration-200"></span>
+    </div>
+
+    <div id="preloader" class="fixed inset-0 z-[100] bg-obsidian flex flex-col items-center justify-center p-6 transition-opacity duration-1000">
+      <div class="relative flex flex-col items-center">
+        <div class="font-syne text-7xl md:text-9xl font-extrabold tracking-tighter text-white mb-4 flex items-center">
+          <span>L</span>
+          <span class="text-violetAccent italic transform -rotate-6">X</span>
+        </div>
+        <p class="font-mono text-xs tracking-[0.3em] text-slate-400 uppercase mb-8">DIGITAL CREATIVE STUDIO</p>
+        <div class="w-48 h-[2px] bg-slate-800 relative overflow-hidden rounded-full mb-3">
+          <div id="loader-progress" class="absolute left-0 top-0 bottom-0 w-0 bg-gradient-to-r from-violetAccent via-cyberCyan to-champagne transition-all duration-300"></div>
+        </div>
+        <span id="loader-num" class="font-mono text-xs text-slate-500">0%</span>
+      </div>
+    </div>
+
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-40 transition-all duration-500 px-6 py-5 md:px-12">
       <div class="max-w-7xl mx-auto flex items-center justify-between">
-        <a href="#hero" class="flex items-center space-x-2 text-xl font-syne font-bold tracking-wider">
-          <span class="text-white">LASHARI</span>
-          <span class="inline-block bg-violetAccent text-obsidian px-1.5 py-0.5 rounded text-sm font-black">X</span>
+        <a href="#hero" class="group flex items-center space-x-2 text-xl font-syne font-bold tracking-wider" data-cursor="LASHARI X">
+          <span class="text-white group-hover:text-cyberCyan transition-colors">LASHARI</span>
+          <span class="inline-block bg-violetAccent text-obsidian px-1.5 py-0.5 rounded text-sm font-black group-hover:scale-110 transition-transform">X</span>
         </a>
 
-        <nav class="hidden md:flex items-center space-x-8 text-xs font-mono uppercase tracking-[0.2em] text-slate-300">
-          <a href="#work" class="hover:text-cyberCyan transition-colors">Work</a>
-          <a href="#services" class="hover:text-cyberCyan transition-colors">Services</a>
-          <a href="#about" class="hover:text-cyberCyan transition-colors">About</a>
-          <a href="#contact" class="hover:text-cyberCyan transition-colors">Contact</a>
+        <nav class="hidden md:flex items-center space-x-8 text-xs font-mono tracking-widest uppercase text-slate-300">
+          <a href="#work" class="hover:text-cyberCyan transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-cyberCyan hover:after:w-full after:transition-all">Work</a>
+          <a href="#services" class="hover:text-cyberCyan transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-cyberCyan hover:after:w-full after:transition-all">Services</a>
+          <a href="#about" class="hover:text-cyberCyan transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-cyberCyan hover:after:w-full after:transition-all">About</a>
+          <a href="#reviews" class="hover:text-cyberCyan transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-cyberCyan hover:after:w-full after:transition-all">Reviews</a>
+          <a href="#policies" class="hover:text-cyberCyan transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-cyberCyan hover:after:w-full after:transition-all">Policies</a>
+          <a href="#skills" class="hover:text-cyberCyan transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-cyberCyan hover:after:w-full after:transition-all">Ecosystem</a>
+          <a href="#contact" class="hover:text-cyberCyan transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-cyberCyan hover:after:w-full after:transition-all">Contact</a>
         </nav>
 
-        <a href="https://wa.me/923196971470" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-slate-200 hover:border-violetAccent/50 transition-colors">
-          <span>Let's Talk</span>
-        </a>
+        <div class="flex items-center space-x-4">
+          <a href="https://wa.me/923196971470" target="_blank" rel="noopener" data-cursor="CHAT" class="hidden sm:inline-flex items-center space-x-2 bg-white/5 border border-white/10 hover:border-violetAccent/50 px-4 py-2 rounded-full text-[10px] font-mono tracking-[0.25em] uppercase text-slate-200 transition-all">
+            <i data-lucide="message-square" class="w-3.5 h-3.5 text-cyberCyan"></i>
+            <span>LET'S TALK</span>
+          </a>
+
+          <button type="button" id="mobile-menu-btn" class="md:hidden text-white p-2 focus:outline-none" aria-label="Toggle Navigation">
+            <i data-lucide="menu" id="menu-icon-open" class="w-6 h-6"></i>
+            <i data-lucide="x" id="menu-icon-close" class="w-6 h-6 hidden"></i>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobile-nav" class="fixed inset-0 bg-obsidian/95 backdrop-blur-2xl z-30 flex flex-col justify-center px-8 py-12 transition-all duration-500 opacity-0 pointer-events-none md:hidden">
+        <div class="flex flex-col space-y-6 text-2xl font-syne font-bold uppercase tracking-wider">
+          <a href="#work" class="mobile-link text-slate-300 hover:text-cyberCyan transition-colors">01. WORK</a>
+          <a href="#services" class="mobile-link text-slate-300 hover:text-cyberCyan transition-colors">02. SERVICES</a>
+          <a href="#about" class="mobile-link text-slate-300 hover:text-cyberCyan transition-colors">03. BEHIND THE X</a>
+          <a href="#reviews" class="mobile-link text-slate-300 hover:text-cyberCyan transition-colors">04. REVIEWS</a>
+          <a href="#policies" class="mobile-link text-slate-300 hover:text-cyberCyan transition-colors">05. POLICIES</a>
+          <a href="#skills" class="mobile-link text-slate-300 hover:text-cyberCyan transition-colors">06. ECOSYSTEM</a>
+          <a href="#contact" class="mobile-link text-slate-300 hover:text-cyberCyan transition-colors">07. CONTACT</a>
+        </div>
+        <div class="mt-12 pt-6 border-t border-white/10 flex flex-col space-y-3 font-mono text-xs text-slate-400">
+          <p>EMAIL: lashari0923@gmail.com</p>
+          <p>WHATSAPP: +92 319 6971470</p>
+          <p class="text-slate-500">RAWALPINDI, PAKISTAN</p>
+        </div>
       </div>
     </header>
 
-    <main>
-      <section id="hero" class="relative min-h-screen flex items-center justify-center px-6 pt-28 pb-14">
-        <div class="absolute inset-0 bg-radial from-transparent via-obsidian/70 to-obsidian pointer-events-none"></div>
-        <div class="relative z-10 max-w-5xl text-center">
-          <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 mb-8">
-            <span class="h-2 w-2 rounded-full bg-cyberCyan animate-pulse"></span>
-            <span class="font-mono text-[10px] uppercase tracking-[0.25em] text-slate-300">Digital Creative Studio</span>
+    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden">
+      <div id="hero-3d-container" class="absolute inset-0 z-0"></div>
+      <div class="absolute inset-0 bg-radial from-transparent via-obsidian/70 to-obsidian pointer-events-none z-10"></div>
+
+      <div class="relative z-20 max-w-7xl mx-auto px-6 text-center flex flex-col items-center">
+        <div class="inline-flex items-center space-x-2 bg-white/5 border border-white/10 backdrop-blur-md px-4 py-1.5 rounded-full mb-8" data-gsap="fade-down">
+          <span class="w-2 h-2 rounded-full bg-cyberCyan animate-pulse"></span>
+          <span class="font-mono text-[10px] md:text-xs tracking-[0.25em] text-slate-300 uppercase">DIGITAL CREATIVE STUDIO</span>
+        </div>
+
+        <h1 class="font-syne font-extrabold tracking-tight uppercase leading-none mb-6">
+          <span class="block text-5xl sm:text-7xl md:text-9xl text-white drop-shadow-2xl" data-gsap="hero-title-1">LASHARI</span>
+          <span class="block text-6xl sm:text-8xl md:text-[11rem] bg-clip-text text-transparent bg-gradient-to-r from-violetAccent via-cyberCyan to-champagne lx-glow mt-[-10px] sm:mt-[-20px]" data-gsap="hero-title-2">X</span>
+        </h1>
+
+        <p class="max-w-xl text-base sm:text-xl text-slate-300 font-light tracking-wide mb-10 font-sans" data-gsap="fade-up">
+          DIGITAL EXPERIENCES. <span class="text-white font-medium italic">BUILT TO BE REMEMBERED.</span>
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-3 md:gap-6 font-mono text-xs text-slate-400 tracking-widest uppercase mb-12" data-gsap="fade-up-delay">
+          <span class="px-3 py-1 border border-white/10 rounded hover:border-violetAccent/50 transition-colors">SOCIAL</span>
+          <span class="text-slate-600">•</span>
+          <span class="px-3 py-1 border border-white/10 rounded hover:border-cyberCyan/50 transition-colors">VIDEO</span>
+          <span class="text-slate-600">•</span>
+          <span class="px-3 py-1 border border-white/10 rounded hover:border-champagne/50 transition-colors">WEB</span>
+        </div>
+
+        <a href="#work" class="group flex flex-col items-center space-y-2 text-slate-500 hover:text-white transition-colors" data-cursor="EXPLORE">
+          <span class="font-mono text-[10px] tracking-widest uppercase">SCROLL TO EXPLORE</span>
+          <div class="w-5 h-8 border border-white/20 rounded-full flex justify-center p-1">
+            <div class="w-1 h-2 bg-cyberCyan rounded-full animate-bounce"></div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="py-6 bg-charcoal/80 border-y border-white/5 overflow-hidden relative z-20">
+      <div class="flex whitespace-nowrap animate-spin-slow-pause" id="marquee-track">
+        <div class="flex items-center space-x-12 font-syne text-2xl md:text-4xl font-extrabold uppercase text-slate-400/80 tracking-wider">
+          <span>SOCIAL CAMPAIGN STRATEGY</span>
+          <span class="text-violetAccent">•</span>
+          <span>CINEMATIC EDITING</span>
+          <span class="text-cyberCyan">•</span>
+          <span>HIGH-CONVERSION WEB EXPERIENCES</span>
+          <span class="text-champagne">•</span>
+          <span>MOTION GRAPHICS</span>
+          <span class="text-magentaAccent">•</span>
+          <span>3D & CREATIVE DEV</span>
+          <span class="text-violetAccent">•</span>
+        </div>
+        <div class="flex items-center space-x-12 font-syne text-2xl md:text-4xl font-extrabold uppercase text-slate-400/80 tracking-wider ml-12">
+          <span>SOCIAL CAMPAIGN STRATEGY</span>
+          <span class="text-violetAccent">•</span>
+          <span>CINEMATIC EDITING</span>
+          <span class="text-cyberCyan">•</span>
+          <span>HIGH-CONVERSION WEB EXPERIENCES</span>
+          <span class="text-champagne">•</span>
+          <span>MOTION GRAPHICS</span>
+          <span class="text-magentaAccent">•</span>
+          <span>3D & CREATIVE DEV</span>
+          <span class="text-violetAccent">•</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="py-24 md:py-32 relative z-20 px-6 md:px-12 max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 border-b border-white/10 pb-8">
+        <div>
+          <div class="font-mono text-xs text-violetAccent tracking-widest uppercase mb-2">// 01 — SELECTED WORKS</div>
+          <h2 class="font-syne text-4xl sm:text-6xl font-extrabold text-white uppercase tracking-tight">PORTFOLIO UNIVERSE</h2>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12" id="projects-grid">
+        <div class="project-card group relative bg-surface rounded-2xl overflow-hidden border border-white/5 hover:border-violetAccent/40 transition-all duration-500" data-category="web">
+          <div class="aspect-video w-full overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop" alt="AETHERIA — Web App Mockup" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80"></div>
+            <span class="absolute top-4 left-4 bg-obsidian/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono text-cyberCyan border border-cyberCyan/30">WEB DEVELOPMENT</span>
+          </div>
+          <div class="p-8">
+            <h3 class="font-syne text-2xl font-bold text-white mb-2">AETHERIA DIGITAL REALM</h3>
+            <p class="text-slate-400 text-sm font-light mb-6">Interactive 3D luxury WebGL platform for next-gen digital fashion exhibition.</p>
+          </div>
+        </div>
+
+        <div class="project-card group relative bg-surface rounded-2xl overflow-hidden border border-white/5 hover:border-violetAccent/40 transition-all duration-500" data-category="video">
+          <div class="aspect-video w-full overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=1200&auto=format&fit=crop" alt="CYBERNETIC SYMPHONY Film Still" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80"></div>
+            <span class="absolute top-4 left-4 bg-obsidian/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono text-magentaAccent border border-magentaAccent/30">VIDEO & REELS</span>
+          </div>
+          <div class="p-8">
+            <h3 class="font-syne text-2xl font-bold text-white mb-2">NEON VELOCITY CAMPAIGN</h3>
+            <p class="text-slate-400 text-sm font-light mb-6">Cinematic brand film & viral short-form sequence for high-end automotive launch.</p>
+          </div>
+        </div>
+
+        <div class="project-card group relative bg-surface rounded-2xl overflow-hidden border border-white/5 hover:border-violetAccent/40 transition-all duration-500" data-category="social">
+          <div class="aspect-video w-full overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1200&auto=format&fit=crop" alt="LUMINA Social Identity" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80"></div>
+            <span class="absolute top-4 left-4 bg-obsidian/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono text-violetAccent border border-violetAccent/30">SOCIAL CAMPAIGN</span>
+          </div>
+          <div class="p-8">
+            <h3 class="font-syne text-2xl font-bold text-white mb-2">LUMINA BRAND SOCIAL ECOSYSTEM</h3>
+            <p class="text-slate-400 text-sm font-light mb-6">Omnichannel social design, visual system, & content strategy yielding 400% engagement.</p>
+          </div>
+        </div>
+
+        <div class="project-card group relative bg-surface rounded-2xl overflow-hidden border border-white/5 hover:border-violetAccent/40 transition-all duration-500" data-category="web">
+          <div class="aspect-video w-full overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop" alt="QUANTUM ARCHITECTURE UI" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80"></div>
+            <span class="absolute top-4 left-4 bg-obsidian/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono text-champagne border border-champagne/30">WEB & INTERACTION</span>
+          </div>
+          <div class="p-8">
+            <h3 class="font-syne text-2xl font-bold text-white mb-2">QUANTUM ARCHITECTURE PORTAL</h3>
+            <p class="text-slate-400 text-sm font-light mb-6">Minimalist, fluid React site engineered for luxury architectural studio.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="py-24 md:py-32 bg-charcoal/50 border-t border-white/5 relative z-20 px-6 md:px-12">
+      <div class="max-w-7xl mx-auto">
+        <div class="mb-16">
+          <div class="font-mono text-xs text-cyberCyan tracking-widest uppercase mb-2">// 02 — CORE DISCIPLINES</div>
+          <h2 class="font-syne text-4xl sm:text-6xl font-extrabold text-white uppercase tracking-tight">THREE IMMERSIVE WORLDS</h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div class="glass-card rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden group hover:border-violetAccent/50 transition-all duration-500">
+            <div class="absolute -right-12 -top-12 w-40 h-40 bg-violetAccent/10 rounded-full blur-3xl group-hover:bg-violetAccent/20 transition-all"></div>
+            <div>
+              <span class="font-mono text-xs text-violetAccent tracking-widest">WORLD 01</span>
+              <h3 class="font-syne text-3xl font-extrabold text-white mt-2 mb-6">SOCIAL</h3>
+              <p class="text-slate-400 text-sm font-light mb-8 leading-relaxed">Transforming social channels into luxury brand statement environments. High-impact content systems engineered for visibility, retention, and conversion.</p>
+            </div>
           </div>
 
-          <h1 class="font-syne text-5xl font-extrabold uppercase tracking-tight sm:text-7xl md:text-9xl leading-none">
-            <span class="block text-white">LASHARI</span>
-            <span class="block bg-gradient-to-r from-violetAccent via-cyberCyan to-champagne bg-clip-text text-transparent mt-[-10px]">X</span>
-          </h1>
+          <div class="glass-card rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden group hover:border-cyberCyan/50 transition-all duration-500">
+            <div class="absolute -right-12 -top-12 w-40 h-40 bg-cyberCyan/10 rounded-full blur-3xl group-hover:bg-cyberCyan/20 transition-all"></div>
+            <div>
+              <span class="font-mono text-xs text-cyberCyan tracking-widest">WORLD 02</span>
+              <h3 class="font-syne text-3xl font-extrabold text-white mt-2 mb-6">VIDEO</h3>
+              <p class="text-slate-400 text-sm font-light mb-8 leading-relaxed">Cinematic storytelling, short-form reel mastery, motion graphics, and high-precision color grading crafted to command attention.</p>
+            </div>
+          </div>
 
-          <p class="mx-auto mt-6 max-w-xl text-base text-slate-300 sm:text-xl">
-            Digital experiences. <span class="text-white font-medium italic">Built to be remembered.</span>
+          <div class="glass-card rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden group hover:border-champagne/50 transition-all duration-500">
+            <div class="absolute -right-12 -top-12 w-40 h-40 bg-champagne/10 rounded-full blur-3xl group-hover:bg-champagne/20 transition-all"></div>
+            <div>
+              <span class="font-mono text-xs text-champagne tracking-widest">WORLD 03</span>
+              <h3 class="font-syne text-3xl font-extrabold text-white mt-2 mb-6">WEB</h3>
+              <p class="text-slate-400 text-sm font-light mb-8 leading-relaxed">Cutting-edge frontend development, interactive WebGL experiences, and branded web systems built for speed and immersion.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="py-24 md:py-32 relative z-20 px-6 md:px-12 max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-5 relative group">
+          <div class="absolute -inset-1 bg-gradient-to-r from-violetAccent via-cyberCyan to-champagne rounded-3xl blur opacity-30 group-hover:opacity-75 transition duration-1000"></div>
+          <div class="relative rounded-3xl overflow-hidden border border-white/10 bg-surface">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=900&auto=format&fit=crop" alt="LASHARI X — Founder & Creative Lead" class="w-full h-auto object-cover filter contrast-105 group-hover:scale-105 transition-transform duration-700" />
+            <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-60"></div>
+            <div class="absolute bottom-6 left-6 right-6 p-4 glass-card rounded-xl border border-white/10">
+              <p class="font-syne text-lg font-bold text-white">RAHMAT LASHARI</p>
+              <p class="font-mono text-xs text-cyberCyan">FOUNDER & CREATIVE DIRECTOR</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 flex flex-col justify-center">
+          <div class="font-mono text-xs text-champagne tracking-widest uppercase mb-2">// 03 — BEHIND THE X</div>
+          <h2 class="font-syne text-4xl sm:text-6xl font-extrabold text-white uppercase tracking-tight mb-8">
+            DIGITAL ARCHITECT. <br />
+            <span class="text-outline">STORYTELLER.</span>
+          </h2>
+          <blockquote class="text-xl sm:text-2xl text-slate-200 font-light leading-relaxed mb-8 border-l-2 border-violetAccent pl-6 italic">
+            "I build digital experiences at the intersection of design, technology, and cinematic storytelling — engineered to break scroll patterns and leave an indelible impression."
+          </blockquote>
+          <p class="text-slate-400 text-sm sm:text-base leading-relaxed mb-10 font-sans">
+            LASHARI X is an elite digital creative studio operating from Pakistan to clients globally. With deep mastery in video editing, social media campaign design, and modern frontend web engineering, we build high-impact experiences that move brands forward.
           </p>
 
-          <div class="mt-10 flex flex-wrap justify-center gap-3 font-mono text-[10px] uppercase tracking-[0.25em] text-slate-400">
-            <span class="rounded-full border border-white/10 px-3 py-2">Social</span>
-            <span class="rounded-full border border-white/10 px-3 py-2">Video</span>
-            <span class="rounded-full border border-white/10 px-3 py-2">Web</span>
+          <div class="grid grid-cols-3 gap-6 border-t border-white/10 pt-8 font-mono">
+            <div>
+              <div class="text-3xl sm:text-4xl font-extrabold font-syne text-white">100%</div>
+              <div class="text-[10px] sm:text-xs text-slate-500 uppercase mt-1">CLIENT DEDICATION</div>
+            </div>
+            <div>
+              <div class="text-3xl sm:text-4xl font-extrabold font-syne text-cyberCyan">03</div>
+              <div class="text-[10px] sm:text-xs text-slate-500 uppercase mt-1">CORE PILLARS</div>
+            </div>
+            <div>
+              <div class="text-3xl sm:text-4xl font-extrabold font-syne text-violetAccent">3D/DEV</div>
+              <div class="text-[10px] sm:text-xs text-slate-500 uppercase mt-1">ADVANCED TECH</div>
+            </div>
           </div>
-
-          <div class="mt-12 flex justify-center">
-            <a href="#contact" class="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-violetAccent to-cyberCyan px-6 py-3 font-syne font-bold uppercase tracking-wide text-obsidian transition-transform hover:scale-[1.02]">
-              Book a project
-            </a>
-          </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="work" class="relative z-10 max-w-7xl mx-auto px-6 py-20">
-        <div class="mb-10">
-          <div class="font-mono text-xs uppercase tracking-[0.25em] text-violetAccent">// 01 — Selected works</div>
-          <h2 class="mt-3 font-syne text-4xl font-extrabold uppercase tracking-tight text-white sm:text-5xl">Portfolio Universe</h2>
-        </div>
-
-        <div class="grid gap-8 md:grid-cols-2">
-          <article class="glass-card overflow-hidden rounded-3xl">
-            <div class="aspect-video overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop" alt="AETHERIA digital realm" class="h-full w-full object-cover" />
-            </div>
-            <div class="p-6">
-              <h3 class="font-syne text-2xl font-bold text-white">AETHERIA DIGITAL REALM</h3>
-              <p class="mt-3 text-sm text-slate-400">Interactive 3D luxury WebGL platform for next-gen digital fashion exhibition.</p>
-            </div>
-          </article>
-
-          <article class="glass-card overflow-hidden rounded-3xl">
-            <div class="aspect-video overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=1200&auto=format&fit=crop" alt="Neon Velocity Campaign" class="h-full w-full object-cover" />
-            </div>
-            <div class="p-6">
-              <h3 class="font-syne text-2xl font-bold text-white">NEON VELOCITY CAMPAIGN</h3>
-              <p class="mt-3 text-sm text-slate-400">Cinematic brand film and viral short-form sequence for a luxury automotive launch.</p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="services" class="relative z-10 max-w-7xl mx-auto px-6 py-20">
-        <div class="mb-10">
-          <div class="font-mono text-xs uppercase tracking-[0.25em] text-cyberCyan">// 02 — Core disciplines</div>
-          <h2 class="mt-3 font-syne text-4xl font-extrabold uppercase tracking-tight text-white sm:text-5xl">Three immersive worlds</h2>
+    <section id="reviews" class="py-24 md:py-32 relative z-20 px-6 md:px-12 bg-charcoal/40 border-y border-white/5">
+      <div class="max-w-7xl mx-auto">
+        <div class="mb-16 max-w-xl">
+          <div class="font-mono text-xs text-violetAccent tracking-widest uppercase mb-2">// 04 — CLIENT FEEDBACK</div>
+          <h2 class="font-syne text-4xl sm:text-6xl font-extrabold text-white uppercase tracking-tight">WHAT CLIENTS SAY</h2>
         </div>
 
         <div class="grid gap-8 lg:grid-cols-3">
           <div class="glass-card rounded-3xl p-8">
-            <span class="font-mono text-xs uppercase tracking-[0.25em] text-violetAccent">World 01</span>
-            <h3 class="mt-4 font-syne text-3xl font-extrabold text-white">Social</h3>
-            <p class="mt-4 text-sm text-slate-400">Luxury social experiences engineered to drive attention, engagement, and conversion.</p>
+            <p class="text-slate-300 leading-relaxed">“The campaign felt premium from day one. The visual direction and momentum were excellent.”</p>
+            <div class="mt-6 border-t border-white/10 pt-4 font-mono text-xs text-cyberCyan uppercase">A. Ali</div>
           </div>
-
           <div class="glass-card rounded-3xl p-8">
-            <span class="font-mono text-xs uppercase tracking-[0.25em] text-cyberCyan">World 02</span>
-            <h3 class="mt-4 font-syne text-3xl font-extrabold text-white">Video</h3>
-            <p class="mt-4 text-sm text-slate-400">Cinematic editing, motion graphics, and premium brand storytelling designed to command attention.</p>
+            <p class="text-slate-300 leading-relaxed">“High-converting web experience with a polished brand identity. We saw real momentum immediately.”</p>
+            <div class="mt-6 border-t border-white/10 pt-4 font-mono text-xs text-violetAccent uppercase">M. Khan</div>
           </div>
-
           <div class="glass-card rounded-3xl p-8">
-            <span class="font-mono text-xs uppercase tracking-[0.25em] text-champagne">World 03</span>
-            <h3 class="mt-4 font-syne text-3xl font-extrabold text-white">Web</h3>
-            <p class="mt-4 text-sm text-slate-400">High-performance web experiences with design clarity, speed, and conversion-focused UX.</p>
+            <p class="text-slate-300 leading-relaxed">“Their editing, pacing, and creative thinking transformed our launch into a standout story.”</p>
+            <div class="mt-6 border-t border-white/10 pt-4 font-mono text-xs text-champagne uppercase">R. Sadiq</div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="about" class="relative z-10 max-w-7xl mx-auto px-6 py-20">
-        <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-          <div class="rounded-[28px] border border-white/10 bg-surface p-4">
-            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=900&auto=format&fit=crop" alt="Rahmat Lashari" class="w-full rounded-2xl object-cover" />
-          </div>
+    <section id="policies" class="py-24 md:py-32 relative z-20 px-6 md:px-12 max-w-7xl mx-auto">
+      <div class="mb-16">
+        <div class="font-mono text-xs text-cyberCyan tracking-widest uppercase mb-2">// 05 — POLICIES</div>
+        <h2 class="font-syne text-4xl sm:text-6xl font-extrabold text-white uppercase tracking-tight">HOW WE WORK</h2>
+      </div>
 
-          <div>
-            <div class="font-mono text-xs uppercase tracking-[0.25em] text-champagne">// 03 — Behind the X</div>
-            <h2 class="mt-3 font-syne text-4xl font-extrabold uppercase tracking-tight text-white sm:text-5xl">
-              Digital architect.<br />
-              <span class="text-outline">Storyteller.</span>
-            </h2>
-            <p class="mt-6 text-base text-slate-300 leading-relaxed">
-              LASHARI X is an elite digital creative studio operating from Pakistan to clients globally. We build premium social campaigns, cinematic video content, and conversion-first web experiences that leave a lasting mark.
-            </p>
-          </div>
+      <div class="grid gap-8 lg:grid-cols-3">
+        <div class="glass-card rounded-3xl p-8">
+          <span class="font-mono text-xs uppercase tracking-[0.25em] text-violetAccent">01</span>
+          <h3 class="font-syne text-3xl font-extrabold text-white mt-4">Discovery</h3>
+          <p class="mt-4 text-slate-400 text-sm leading-relaxed">We align on goals, audiences, vision, and commercial priorities before building anything.</p>
         </div>
-      </section>
+        <div class="glass-card rounded-3xl p-8">
+          <span class="font-mono text-xs uppercase tracking-[0.25em] text-cyberCyan">02</span>
+          <h3 class="font-syne text-3xl font-extrabold text-white mt-4">Execution</h3>
+          <p class="mt-4 text-slate-400 text-sm leading-relaxed">Creative strategy, design, video, and web implementation move in sync with clear milestones.</p>
+        </div>
+        <div class="glass-card rounded-3xl p-8">
+          <span class="font-mono text-xs uppercase tracking-[0.25em] text-champagne">03</span>
+          <h3 class="font-syne text-3xl font-extrabold text-white mt-4">Delivery</h3>
+          <p class="mt-4 text-slate-400 text-sm leading-relaxed">We refine the final output for consistency, performance, and brand impact before launch.</p>
+        </div>
+      </div>
+    </section>
 
-      <section id="contact" class="relative z-10 max-w-7xl mx-auto px-6 py-20">
-        <div class="relative overflow-hidden rounded-[28px] border border-white/10 bg-charcoal/80 px-6 py-8 md:px-10 md:py-12">
-          <div class="absolute -top-16 right-0 h-52 w-52 rounded-full bg-violetAccent/20 blur-3xl"></div>
-          <div class="absolute bottom-0 left-0 h-40 w-40 rounded-full bg-cyan-500/10 blur-3xl"></div>
+    <section id="skills" class="py-24 md:py-32 bg-charcoal/40 border-y border-white/5 relative z-20 px-6 md:px-12">
+      <div class="max-w-7xl mx-auto">
+        <div class="mb-16">
+          <div class="font-mono text-xs text-violetAccent tracking-widest uppercase mb-2">// 06 — ECOSYSTEM & STACK</div>
+          <h2 class="font-syne text-4xl sm:text-6xl font-extrabold text-white uppercase tracking-tight">TOOLS OF THE TRADE</h2>
+        </div>
 
-          <div class="relative z-10 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-5 text-center">
+          <div class="glass-card rounded-2xl p-5 font-mono text-xs uppercase tracking-[0.2em] text-slate-300">Premiere Pro</div>
+          <div class="glass-card rounded-2xl p-5 font-mono text-xs uppercase tracking-[0.2em] text-slate-300">After Effects</div>
+          <div class="glass-card rounded-2xl p-5 font-mono text-xs uppercase tracking-[0.2em] text-slate-300">Photoshop</div>
+          <div class="glass-card rounded-2xl p-5 font-mono text-xs uppercase tracking-[0.2em] text-slate-300">Illustrator</div>
+          <div class="glass-card rounded-2xl p-5 font-mono text-xs uppercase tracking-[0.2em] text-slate-300">Figma</div>
+          <div class="glass-card rounded-2xl p-5 font-mono text-xs uppercase tracking-[0.2em] text-slate-300">WebGL</div>
+          <div class="glass-card rounded-2xl p-5 font-mono text-xs uppercase tracking-[0.2em] text-slate-300">GSAP</div>
+          <div class="glass-card rounded-2xl p-5 font-mono text-xs uppercase tracking-[0.2em] text-slate-300">React</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-24 md:py-32 relative z-20 px-6 md:px-12 max-w-7xl mx-auto">
+      <div class="relative overflow-hidden rounded-[28px] border border-white/10 bg-charcoal/70 px-6 py-8 md:px-10 md:py-14">
+        <div class="absolute -top-16 right-0 h-52 w-52 rounded-full bg-violetAccent/20 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 h-40 w-40 rounded-full bg-cyan-500/10 blur-3xl"></div>
+
+        <div class="relative z-10">
+          <div class="inline-flex items-center space-x-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 mb-8">
+            <span class="h-2 w-2 rounded-full bg-violetAccent"></span>
+            <span class="font-mono text-[10px] uppercase tracking-[0.25em] text-slate-300">Available for global projects</span>
+          </div>
+
+          <div class="grid grid-cols-1 gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
             <div class="space-y-6">
               <div class="font-mono text-xs uppercase tracking-[0.25em] text-cyberCyan">// Contact</div>
-              <h2 class="font-syne text-4xl font-extrabold uppercase tracking-tight text-white md:text-6xl">
+              <h1 class="font-syne text-4xl font-extrabold uppercase tracking-tight text-white md:text-6xl">
                 Let's build something
                 <span class="text-outline block md:inline">worth remembering.</span>
-              </h2>
+              </h1>
               <p class="max-w-xl text-base text-slate-300 md:text-lg">
-                Ready to turn your idea into a high-converting digital experience? Tell us about your project and we’ll reach out with the next steps.
+                Ready to transform your brand into a high-converting digital spectacle? Tell us about your project and we'll reach out with the next steps.
               </p>
             </div>
 
             <div class="glass-card rounded-3xl p-5 md:p-7">
               <div class="mb-5 flex items-center justify-between">
-                <h3 class="font-syne text-2xl font-bold uppercase text-white">Start a project</h3>
+                <h2 class="font-syne text-2xl font-bold uppercase text-white">Start a project</h2>
                 <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-cyberCyan">Reply within 24h</span>
               </div>
 
-              <form id="contactForm" class="space-y-5" novalidate>
+              <form id="contactForm" class="space-y-5 text-left" novalidate>
                 <div>
                   <label for="name" class="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-slate-400">Name</label>
-                  <input id="name" name="name" type="text" required placeholder="Your name" class="w-full rounded-2xl border border-white/10 bg-slate-950/50 px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:border-cyberCyan focus:outline-none" />
+                  <input id="name" name="name" type="text" required placeholder="Your name" class="w-full rounded-2xl border border-white/10 bg-slate-950/50 px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:border-cyberCyan focus:outline-none transition-colors" />
                 </div>
 
                 <div>
                   <label for="email" class="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-slate-400">Email</label>
-                  <input id="email" name="email" type="email" required placeholder="you@example.com" class="w-full rounded-2xl border border-white/10 bg-slate-950/50 px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:border-cyberCyan focus:outline-none" />
+                  <input id="email" name="email" type="email" required placeholder="you@example.com" class="w-full rounded-2xl border border-white/10 bg-slate-950/50 px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:border-cyberCyan focus:outline-none transition-colors" />
                 </div>
 
                 <div>
                   <label for="service" class="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-slate-400">Service</label>
-                  <select id="service" name="service" class="w-full rounded-2xl border border-white/10 bg-slate-950/50 px-4 py-3 text-sm text-white focus:border-cyberCyan focus:outline-none">
+                  <select id="service" name="service" class="w-full rounded-2xl border border-white/10 bg-slate-950/50 px-4 py-3 text-sm text-white focus:border-cyberCyan focus:outline-none transition-colors">
                     <option value="Social campaign strategy">Social campaign strategy</option>
                     <option value="Video editing & reels">Video editing & reels</option>
                     <option value="Web development">Web development</option>
@@ -233,10 +551,10 @@
 
                 <div>
                   <label for="message" class="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-slate-400">Project brief</label>
-                  <textarea id="message" name="message" rows="5" required placeholder="Tell us about your goals, timeframe, and what you need created..." class="w-full rounded-2xl border border-white/10 bg-slate-950/50 px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:border-cyberCyan focus:outline-none resize-none"></textarea>
+                  <textarea id="message" name="message" rows="5" required placeholder="Tell us about your goals, timeframe, and what you need created..." class="w-full rounded-2xl border border-white/10 bg-slate-950/50 px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:border-cyberCyan focus:outline-none transition-colors resize-none"></textarea>
                 </div>
 
-                <button type="submit" class="inline-flex w-full items-center justify-center rounded-2xl bg-gradient-to-r from-violetAccent via-purple-500 to-cyan-500 px-5 py-3 font-syne font-bold uppercase tracking-wide text-white transition-transform hover:scale-[1.01]">
+                <button type="submit" class="inline-flex w-full items-center justify-center rounded-2xl bg-gradient-to-r from-violetAccent via-purple-500 to-cyan-500 px-5 py-3 font-syne font-bold uppercase tracking-wide text-white transition-transform hover:scale-[1.01] active:scale-95">
                   Send project brief
                 </button>
 
@@ -245,41 +563,152 @@
             </div>
           </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
 
-    <a href="https://wa.me/923196971470" target="_blank" rel="noopener" class="fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500 text-obsidian shadow-2xl transition-transform hover:scale-110">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H7l-4 4V11.5A8.5 8.5 0 0 1 11.5 3a8.5 8.5 0 0 1 9.5 8.5Z"/></svg>
+    <a href="https://wa.me/923196971470" target="_blank" rel="noopener" class="fixed bottom-6 right-6 z-40 bg-emerald-500 hover:bg-emerald-400 text-obsidian p-4 rounded-full shadow-2xl transition-all hover:scale-110">
+      <i data-lucide="message-circle" class="w-6 h-6 fill-current"></i>
     </a>
 
+    <footer class="py-8 bg-obsidian border-t border-white/5 relative z-20 px-6 md:px-12">
+      <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-slate-500 space-y-4 sm:space-y-0">
+        <div>LASHARI X • DIGITAL CREATIVE STUDIO</div>
+        <div>RAWALPINDI, PAKISTAN</div>
+        <div>SOCIAL • VIDEO • WEB</div>
+      </div>
+    </footer>
+
     <script>
-      const form = document.getElementById('contactForm');
-      const status = document.getElementById('form-status');
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      form?.addEventListener('submit', function (event) {
-        event.preventDefault();
+      window.addEventListener('DOMContentLoaded', () => {
+        if (window.lucide) lucide.createIcons();
+        initPreloader();
+        initCustomCursor();
+        initMobileMenu();
+        initContactForm();
+      });
 
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const service = document.getElementById('service').value;
-        const message = document.getElementById('message').value.trim();
+      function initPreloader() {
+        const loaderProgress = document.getElementById('loader-progress');
+        const loaderNum = document.getElementById('loader-num');
+        const preloader = document.getElementById('preloader');
+        if (!loaderProgress || !loaderNum || !preloader) return;
 
-        if (!name || !email || !message) {
-          status.textContent = 'Please fill out your name, email, and project brief.';
-          status.style.color = '#FCA5A5';
-          return;
+        let count = 0;
+        const interval = setInterval(() => {
+          count += Math.floor(Math.random() * 12) + 1;
+          if (count >= 100) {
+            count = 100;
+            clearInterval(interval);
+            setTimeout(() => {
+              preloader.classList.add('opacity-0');
+              setTimeout(() => {
+                preloader.style.display = 'none';
+              }, 1000);
+            }, 300);
+          }
+          loaderProgress.style.width = count + '%';
+          loaderNum.innerText = count + '%';
+        }, 50);
+      }
+
+      function initCustomCursor() {
+        const dot = document.getElementById('cursor-dot');
+        const follower = document.getElementById('cursor-follower');
+        const text = document.getElementById('cursor-text');
+        if (!dot || !follower || prefersReducedMotion) return;
+
+        let mouseX = 0, mouseY = 0;
+        let followerX = 0, followerY = 0;
+
+        window.addEventListener('mousemove', (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+          dot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
+        });
+
+        function animateCursor() {
+          followerX += (mouseX - followerX) * 0.15;
+          followerY += (mouseY - followerY) * 0.15;
+          follower.style.transform = `translate(${followerX}px, ${followerY}px) translate(-50%, -50%)`;
+          requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        document.querySelectorAll('[data-cursor]').forEach(el => {
+          el.addEventListener('mouseenter', () => {
+            const val = el.getAttribute('data-cursor');
+            text.innerText = val;
+            text.classList.remove('opacity-0');
+            follower.classList.add('w-20', 'h-20', 'bg-white/10', 'backdrop-blur-sm', 'border-violetAccent');
+          });
+          el.addEventListener('mouseleave', () => {
+            text.classList.add('opacity-0');
+            follower.classList.remove('w-20', 'h-20', 'bg-white/10', 'backdrop-blur-sm', 'border-violetAccent');
+          });
+        });
+      }
+
+      function initMobileMenu() {
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-nav');
+        const openIcon = document.getElementById('menu-icon-open');
+        const closeIcon = document.getElementById('menu-icon-close');
+        const links = document.querySelectorAll('.mobile-link');
+
+        if (!btn || !menu || !openIcon || !closeIcon) return;
+
+        let isOpen = false;
+
+        function toggle() {
+          isOpen = !isOpen;
+          if (isOpen) {
+            menu.classList.remove('opacity-0', 'pointer-events-none');
+            openIcon.classList.add('hidden');
+            closeIcon.classList.remove('hidden');
+          } else {
+            menu.classList.add('opacity-0', 'pointer-events-none');
+            openIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+          }
         }
 
-        const subject = encodeURIComponent(`New project inquiry from ${name} — ${service}`);
-        const body = encodeURIComponent(
-          `Name: ${name}\nEmail: ${email}\nService: ${service}\n\nProject brief:\n${message}`
-        );
+        btn.addEventListener('click', toggle);
+        links.forEach(l => l.addEventListener('click', () => { if (isOpen) toggle(); }));
+      }
 
-        window.location.href = `mailto:lashari0923@gmail.com?subject=${subject}&body=${body}`;
-        status.textContent = 'Your email app is ready. Thanks — we\'ll get back to you soon.';
-        status.style.color = '#7DD3FC';
-        form.reset();
-      });
+      function initContactForm() {
+        const form = document.getElementById('contactForm');
+        const status = document.getElementById('form-status');
+
+        if (!form || !status) return;
+
+        form.addEventListener('submit', function (event) {
+          event.preventDefault();
+
+          const name = document.getElementById('name').value.trim();
+          const email = document.getElementById('email').value.trim();
+          const service = document.getElementById('service').value;
+          const message = document.getElementById('message').value.trim();
+
+          if (!name || !email || !message) {
+            status.textContent = 'Please fill out your name, email, and project brief.';
+            status.style.color = '#FCA5A5';
+            return;
+          }
+
+          const subject = encodeURIComponent(`New project inquiry from ${name} — ${service}`);
+          const body = encodeURIComponent(
+            `Name: ${name}\nEmail: ${email}\nService: ${service}\n\nProject brief:\n${message}`
+          );
+
+          window.location.href = `mailto:lashari0923@gmail.com?subject=${subject}&body=${body}`;
+          status.textContent = 'Your email app is ready. Thanks — we\'ll get back to you soon.';
+          status.style.color = '#7DD3FC';
+          form.reset();
+        });
+      }
     </script>
   </body>
 </html>
