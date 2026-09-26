@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">LASHARI X Social Preview</title>
+  <desc id="desc">Purple and cyan gradient banner for the LASHARI X digital studio brand.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070709"/>
+      <stop offset="50%" stop-color="#0F0F13"/>
+      <stop offset="100%" stop-color="#1A1026"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8A2BE2"/>
+      <stop offset="50%" stop-color="#00F0FF"/>
+      <stop offset="100%" stop-color="#E6C594"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1100" cy="110" r="180" fill="#8A2BE2" opacity="0.18"/>
+  <circle cx="180" cy="520" r="220" fill="#00F0FF" opacity="0.14"/>
+  <rect x="70" y="70" width="1060" height="490" rx="30" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="90" y="235" fill="#F8FAFC" font-size="80" font-family="Arial, Helvetica, sans-serif" letter-spacing="3">LASHARI</text>
+  <text x="90" y="335" fill="url(#accent)" font-size="170" font-weight="700" font-family="Arial, Helvetica, sans-serif" letter-spacing="-6">X</text>
+  <text x="90" y="430" fill="#CBD5E1" font-size="28" font-family="Arial, Helvetica, sans-serif" letter-spacing="6">DIGITAL CREATIVE STUDIO</text>
+  <text x="90" y="490" fill="#94A3B8" font-size="24" font-family="Arial, Helvetica, sans-serif" letter-spacing="3">SOCIAL • VIDEO • WEB</text>
+</svg>
