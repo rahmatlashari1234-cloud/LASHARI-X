@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LASHARI X — DIGITAL CREATIVE STUDIO | SOCIAL • VIDEO • WEB</title>
+  
+  <!-- SEO & Open Graph Meta -->
+  <meta name="description" content="LASHARI X — Digital Creative Studio. Social, Video, Web. Digital experiences built to be remembered." />
+  <meta property="og:title" content="LASHARI X — DIGITAL CREATIVE STUDIO" />
+  <meta property="og:description" content="Digital Experiences. Built to be remembered. Social • Video • Web" />
+  <meta property="og:type" content="website" />
+  
+  <!-- Fonts: Syne & Plus Jakarta Sans for Editorial High-End Feel -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons & FontAwesome for icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Three.js CDN for 3D LX Sculpture -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- GSAP for Ultra Smooth Animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            syne: ['Syne', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            obsidian: '#070709',
+            charcoal: '#0F0F13',
+            surface: '#15151C',
+            violetAccent: '#8A2BE2',
+            cyberCyan: '#00F0FF',
+            champagne: '#E6C594',
+            magentaAccent: '#FF007A',
+          },
+          animation: {
+            'spin-slow': 'spin 20s linear infinite',
+            'pulse-subtle': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #070709;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #262633;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #8A2BE2;
+    }
+
+    /* Atmospheric Film Grain Overlay */
+    .bg-grain {
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
+    }
+
+    /* Custom Cursor Styles */
+    @media (pointer: fine) {
+      body {
+        cursor: none;
+      }
+    }
+    .custom-cursor {
+      pointer-events: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, transform 0.15s ease-out;
+    }
+
+    /* Dynamic Text Clipping & Masking */
+    .text-outline {
+      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+      color: transparent;
+    }
+    .text-outline-hover:hover {
+      -webkit-text-stroke: 0px transparent;
+      color: #ffffff;
+    }
+
+    /* Glitch/Hover Shimmer */
+    .hover-glow {
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .hover-glow:hover {
+      box-shadow: 0 0 30px rgba(138, 43, 226, 0.25);
+    }
+
+    /* Glassmorphism Refined */
+    .glass-card {
+      background: rgba(21, 21, 28, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    /* LX Signature Glow */
+    .lx-glow {
+      filter: drop-shadow(0 0 20px rgba(138, 43, 226, 0.4));
+    }
+  </style>
+</head>
+<body class="bg-obsidian text-slate-100 font-sans selection:bg-violetAccent selection:text-white relative overflow-x-hidden antialiased">
+
+  <!-- Subtle Global Grain Layer -->
+  <div class="fixed inset-0 bg-grain pointer-events-none z-50"></div>
+
+  <!-- Custom Magnetic Cursor Container -->
+  <div id="cursor-dot" class="custom-cursor w-3 h-3 bg-white rounded-full mix-blend-difference hidden md:block"></div>
+  <div id="cursor-follower" class="custom-cursor w-10 h-10 border border-white/40 rounded-full hidden md:flex items-center justify-center text-[9px] font-mono tracking-widest text-white uppercase pointer-events-none z-50">
+    <span id="cursor-text" class="opacity-0 transition-opacity duration-200"></span>
+  </div>
+
+  <!-- PRELOADER EXPERIENTIAL overlay -->
+  <div id="preloader" class="fixed inset-0 z-[100] bg-obsidian flex flex-col items-center justify-center p-6 transition-opacity duration-1000">
+    <div class="relative flex flex-col items-center">
+      <!-- Monogram Animated -->
+      <div class="font-syne text-7xl md:text-9xl font-extrabold tracking-tighter text-white mb-4 flex items-center">
+        <span>L</span>
+        <span class="text-violetAccent italic transform -rotate-6">X</span>
+      </div>
+      <p class="font-mono text-xs tracking-[0.3em] text-slate-400 uppercase mb-8">DIGITAL CREATIVE STUDIO</p>
+      
+      <!-- Progress Bar & Percentage -->
+      <div class="w-48 h-[2px] bg-slate-800 relative overflow-hidden rounded-full mb-3">
+        <div id="loader-progress" class="absolute left-0 top-0 bottom-0 w-0 bg-gradient-to-r from-violetAccent via-cyberCyan to-champagne transition-all duration-300"></div>
+      </div>
+      <span id="loader-num" class="font-mono text-xs text-slate-500">0%</span>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-40 transition-all duration-500 px-6 py-5 md:px-12">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#hero" class="group flex items-center space-x-2 text-xl font-syne font-bold tracking-wider" data-cursor="LASHARI X">
+        <span class="text-white group-hover:text-cyberCyan transition-colors">LASHARI</span>
+        <span class="inline-block bg-violetAccent text-obsidian px-1.5 py-0.5 rounded text-sm font-black group-hover:scale-110 transition-transform">X</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center space-x-8 text-xs font-mono tracking-widest uppercase text-slate-300">
+        <a href="#work" class="hover:text-cyberCyan transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-cyberCyan hover:after:w-full after:transition-all">WORK</a>
+        <a href="#services" class="hover:text-cyberCyan transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-cyberCyan hover:after:w-full after:transition-all">SERVICES</a>
+        <a href="#about" class="hover:text-cyberCyan transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-cyberCyan hover:after:w-full after:transition-all">BEHIND THE X</a>
+        <a href="#skills" class="hover:text-cyberCyan transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-cyberCyan hover:after:w-full after:transition-all">ECOSYSTEM</a>
+        <a href="#contact" class="hover:text-cyberCyan transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-cyberCyan hover:after:w-full after:transition-all">CONTACT</a>
+      </nav>
+
+      <!-- Direct Action CTA & Mobile Trigger -->
+      <div class="flex items-center space-x-4">
+        <a href="https://wa.me/923196971470" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center space-x-2 bg-white/5 border border-white/10 hover:border-violetAccent/50 px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider text-slate-200 hover:text-white hover:bg-violetAccent/10 transition-all duration-300" data-cursor="CHAT">
+          <i data-lucide="message-square" class="w-3.5 h-3.5 text-cyberCyan"></i>
+          <span>LET'S TALK</span>
+        </a>
+
+        <button id="mobile-menu-btn" class="md:hidden text-white p-2 focus:outline-none" aria-label="Toggle Navigation">
+          <i data-lucide="menu" id="menu-icon-open" class="w-6 h-6"></i>
+          <i data-lucide="x" id="menu-icon-close" class="w-6 h-6 hidden"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Nav Overlay -->
+    <div id="mobile-nav" class="fixed inset-0 bg-obsidian/95 backdrop-blur-2xl z-30 flex flex-col justify-center px-8 py-12 transition-all duration-500 opacity-0 pointer-events-none md:hidden top-[72px]">
+      <div class="flex flex-col space-y-6 text-2xl font-syne font-bold uppercase tracking-wider">
+        <a href="#work" class="mobile-link text-slate-300 hover:text-cyberCyan transition-colors">01. WORK</a>
+        <a href="#services" class="mobile-link text-slate-300 hover:text-cyberCyan transition-colors">02. SERVICES</a>
+        <a href="#about" class="mobile-link text-slate-300 hover:text-cyberCyan transition-colors">03. BEHIND THE X</a>
+        <a href="#skills" class="mobile-link text-slate-300 hover:text-cyberCyan transition-colors">04. ECOSYSTEM</a>
+        <a href="#contact" class="mobile-link text-slate-300 hover:text-cyberCyan transition-colors">05. CONTACT</a>
+      </div>
+      <div class="mt-12 pt-6 border-t border-white/10 flex flex-col space-y-3 font-mono text-xs text-slate-400">
+        <p>EMAIL: lashari0923@gmail.com</p>
+        <p>WHATSAPP: +92 319 6971470</p>
+        <p class="text-slate-500">RAWALPINDI, PAKISTAN</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden">
+    <!-- 3D Three.js Sculpture Background Canvas -->
+    <div id="hero-3d-container" class="absolute inset-0 z-0"></div>
+
+    <!-- Radial Gradient Overlay for Visual Depth -->
+    <div class="absolute inset-0 bg-radial from-transparent via-obsidian/70 to-obsidian pointer-events-none z-10"></div>
+
+    <div class="relative z-20 max-w-7xl mx-auto px-6 text-center flex flex-col items-center">
+      <!-- Tagline Pill -->
+      <div class="inline-flex items-center space-x-2 bg-white/5 border border-white/10 backdrop-blur-md px-4 py-1.5 rounded-full mb-8" data-gsap="fade-down">
+        <span class="w-2 h-2 rounded-full bg-cyberCyan animate-pulse"></span>
+        <span class="font-mono text-[10px] md:text-xs tracking-[0.25em] text-slate-300 uppercase">DIGITAL CREATIVE STUDIO</span>
+      </div>
+
+      <!-- Main Headline Typography -->
+      <h1 class="font-syne font-extrabold tracking-tight uppercase leading-none mb-6">
+        <span class="block text-5xl sm:text-7xl md:text-9xl text-white drop-shadow-2xl" data-gsap="hero-title-1">LASHARI</span>
+        <span class="block text-6xl sm:text-8xl md:text-[11rem] bg-clip-text text-transparent bg-gradient-to-r from-violetAccent via-cyberCyan to-champagne lx-glow mt-[-10px] sm:mt-[-20px]" data-gsap="hero-title-2">
+          X
+        </span>
+      </h1>
+
+      <!-- Subtitle Statements -->
+      <p class="max-w-xl text-base sm:text-xl text-slate-300 font-light tracking-wide mb-10 font-sans" data-gsap="fade-up">
+        DIGITAL EXPERIENCES. <span class="text-white font-medium italic">BUILT TO BE REMEMBERED.</span>
+      </p>
+
+      <!-- Core Disciplines Badges -->
+      <div class="flex flex-wrap justify-center gap-3 md:gap-6 font-mono text-xs text-slate-400 tracking-widest uppercase mb-12" data-gsap="fade-up-delay">
+        <span class="px-3 py-1 border border-white/10 rounded hover:border-violetAccent/50 transition-colors">SOCIAL</span>
+        <span class="text-slate-600">•</span>
+        <span class="px-3 py-1 border border-white/10 rounded hover:border-cyberCyan/50 transition-colors">VIDEO</span>
+        <span class="text-slate-600">•</span>
+        <span class="px-3 py-1 border border-white/10 rounded hover:border-champagne/50 transition-colors">WEB</span>
+      </div>
+
+      <!-- Scroll Indicator Button -->
+      <a href="#work" class="group flex flex-col items-center space-y-2 text-slate-500 hover:text-white transition-colors" data-cursor="EXPLORE">
+        <span class="font-mono text-[10px] tracking-widest uppercase">SCROLL TO EXPLORE</span>
+        <div class="w-5 h-8 border border-white/20 rounded-full flex justify-center p-1">
+          <div class="w-1 h-2 bg-cyberCyan rounded-full animate-bounce"></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- MARQUEE SECTION -->
+  <section class="py-6 bg-charcoal/80 border-y border-white/5 overflow-hidden relative z-20">
+    <div class="flex whitespace-nowrap animate-spin-slow-pause" id="marquee-track">
+      <div class="flex items-center space-x-12 font-syne text-2xl md:text-4xl font-extrabold uppercase text-slate-400/80 tracking-wider">
+        <span>SOCIAL CAMPAIGN STRATEGY</span>
+        <span class="text-violetAccent">•</span>
+        <span>CINEMATIC EDITING</span>
+        <span class="text-cyberCyan">•</span>
+        <span>HIGH-CONVERSION WEB EXPERIENCES</span>
+        <span class="text-champagne">•</span>
+        <span>MOTION GRAPHICS</span>
+        <span class="text-magentaAccent">•</span>
+        <span>3D & CREATIVE DEV</span>
+        <span class="text-violetAccent">•</span>
+      </div>
+      <div class="flex items-center space-x-12 font-syne text-2xl md:text-4xl font-extrabold uppercase text-slate-400/80 tracking-wider ml-12">
+        <span>SOCIAL CAMPAIGN STRATEGY</span>
+        <span class="text-violetAccent">•</span>
+        <span>CINEMATIC EDITING</span>
+        <span class="text-cyberCyan">•</span>
+        <span>HIGH-CONVERSION WEB EXPERIENCES</span>
+        <span class="text-champagne">•</span>
+        <span>MOTION GRAPHICS</span>
+        <span class="text-magentaAccent">•</span>
+        <span>3D & CREATIVE DEV</span>
+        <span class="text-violetAccent">•</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO UNIVERSE SECTION -->
+  <section id="work" class="py-24 md:py-32 relative z-20 px-6 md:px-12 max-w-7xl mx-auto">
+    <!-- Section Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 border-b border-white/10 pb-8">
+      <div>
+        <div class="font-mono text-xs text-violetAccent tracking-widest uppercase mb-2">// 01 — SELECTED WORKS</div>
+        <h2 class="font-syne text-4xl sm:text-6xl font-extrabold text-white uppercase tracking-tight">PORTFOLIO UNIVERSE</h2>
+      </div>
+      <!-- Category Filter Tabs -->
+      <div class="flex flex-wrap gap-2 mt-6 md:mt-0 font-mono text-xs" id="project-filters">
+        <button data-filter="all" class="filter-btn px-4 py-2 rounded-full border border-violetAccent bg-violetAccent/20 text-white transition-all">ALL</button>
+        <button data-filter="social" class="filter-btn px-4 py-2 rounded-full border border-white/10 text-slate-400 hover:text-white transition-all">SOCIAL</button>
+        <button data-filter="video" class="filter-btn px-4 py-2 rounded-full border border-white/10 text-slate-400 hover:text-white transition-all">VIDEO</button>
+        <button data-filter="web" class="filter-btn px-4 py-2 rounded-full border border-white/10 text-slate-400 hover:text-white transition-all">WEB</button>
+      </div>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12" id="projects-grid">
+      <!-- Project Item 1 -->
+      <div class="project-card group relative bg-surface rounded-2xl overflow-hidden border border-white/5 hover:border-violetAccent/40 transition-all duration-500" data-category="web" data-cursor="VIEW">
+        <div class="aspect-video w-full overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop" alt="AETHERIA — Web App Mockup" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter grayscale group-hover:grayscale-0" />
+          <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80"></div>
+          <span class="absolute top-4 left-4 bg-obsidian/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono text-cyberCyan border border-cyberCyan/30">WEB DEVELOPMENT</span>
+        </div>
+        <div class="p-8">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="font-syne text-2xl font-bold text-white group-hover:text-cyberCyan transition-colors">AETHERIA DIGITAL REALM</h3>
+            <span class="font-mono text-xs text-slate-500">2026</span>
+          </div>
+          <p class="text-slate-400 text-sm font-light mb-6">Interactive 3D luxury WebGL platform for next-gen digital fashion exhibition.</p>
+          <button onclick="openCaseStudy(0)" class="inline-flex items-center space-x-2 font-mono text-xs text-white uppercase tracking-wider group-hover:translate-x-2 transition-transform">
+            <span>EXPLORE CASE STUDY</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 text-violetAccent"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Project Item 2 -->
+      <div class="project-card group relative bg-surface rounded-2xl overflow-hidden border border-white/5 hover:border-violetAccent/40 transition-all duration-500" data-category="video" data-cursor="PLAY">
+        <div class="aspect-video w-full overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=1200&auto=format&fit=crop" alt="CYBERNETIC SYMPHONY Film Still" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter grayscale group-hover:grayscale-0" />
+          <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80"></div>
+          <span class="absolute top-4 left-4 bg-obsidian/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono text-magentaAccent border border-magentaAccent/30">VIDEO & REELS</span>
+        </div>
+        <div class="p-8">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="font-syne text-2xl font-bold text-white group-hover:text-magentaAccent transition-colors">NEON VELOCITY CAMPAIGN</h3>
+            <span class="font-mono text-xs text-slate-500">2025</span>
+          </div>
+          <p class="text-slate-400 text-sm font-light mb-6">Cinematic brand film & viral short-form sequence for high-end automotive launch.</p>
+          <button onclick="openCaseStudy(1)" class="inline-flex items-center space-x-2 font-mono text-xs text-white uppercase tracking-wider group-hover:translate-x-2 transition-transform">
+            <span>EXPLORE CASE STUDY</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 text-magentaAccent"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Project Item 3 -->
+      <div class="project-card group relative bg-surface rounded-2xl overflow-hidden border border-white/5 hover:border-violetAccent/40 transition-all duration-500" data-category="social" data-cursor="VIEW">
+        <div class="aspect-video w-full overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1200&auto=format&fit=crop" alt="LUMINA Social Identity" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter grayscale group-hover:grayscale-0" />
+          <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80"></div>
+          <span class="absolute top-4 left-4 bg-obsidian/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono text-violetAccent border border-violetAccent/30">SOCIAL CAMPAIGN</span>
+        </div>
+        <div class="p-8">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="font-syne text-2xl font-bold text-white group-hover:text-violetAccent transition-colors">LUMINA BRAND SOCIAL ECOSYSTEM</h3>
+            <span class="font-mono text-xs text-slate-500">2026</span>
+          </div>
+          <p class="text-slate-400 text-sm font-light mb-6">Omnichannel social design, visual system, & content strategy yielding 400% engagement.</p>
+          <button onclick="openCaseStudy(2)" class="inline-flex items-center space-x-2 font-mono text-xs text-white uppercase tracking-wider group-hover:translate-x-2 transition-transform">
+            <span>EXPLORE CASE STUDY</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 text-violetAccent"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Project Item 4 -->
+      <div class="project-card group relative bg-surface rounded-2xl overflow-hidden border border-white/5 hover:border-violetAccent/40 transition-all duration-500" data-category="web" data-cursor="VIEW">
+        <div class="aspect-video w-full overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop" alt="QUANTUM ARCHITECTURE UI" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter grayscale group-hover:grayscale-0" />
+          <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80"></div>
+          <span class="absolute top-4 left-4 bg-obsidian/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono text-champagne border border-champagne/30">WEB & INTERACTION</span>
+        </div>
+        <div class="p-8">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="font-syne text-2xl font-bold text-white group-hover:text-champagne transition-colors">QUANTUM ARCHITECTURE PORTAL</h3>
+            <span class="font-mono text-xs text-slate-500">2025</span>
+          </div>
+          <p class="text-slate-400 text-sm font-light mb-6">Minimalist, fluid React site engineered for luxury architectural studio.</p>
+          <button onclick="openCaseStudy(3)" class="inline-flex items-center space-x-2 font-mono text-xs text-white uppercase tracking-wider group-hover:translate-x-2 transition-transform">
+            <span>EXPLORE CASE STUDY</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 text-champagne"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDY MODAL -->
+  <div id="case-study-modal" class="fixed inset-0 z-50 bg-obsidian/95 backdrop-blur-2xl overflow-y-auto hidden transition-opacity duration-300 opacity-0">
+    <div class="max-w-5xl mx-auto px-6 py-12 md:py-20 relative">
+      <button onclick="closeCaseStudy()" class="fixed top-8 right-8 z-50 p-3 bg-white/10 hover:bg-white/20 rounded-full text-white transition-colors">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+
+      <div id="modal-content">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- THREE DISCIPLINES / SERVICES WORLDS -->
+  <section id="services" class="py-24 md:py-32 bg-charcoal/50 border-t border-white/5 relative z-20 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-16">
+        <div class="font-mono text-xs text-cyberCyan tracking-widest uppercase mb-2">// 02 — CORE DISCIPLINES</div>
+        <h2 class="font-syne text-4xl sm:text-6xl font-extrabold text-white uppercase tracking-tight">THREE IMMERSIVE WORLDS</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- WORLD 01 - SOCIAL -->
+        <div class="glass-card rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden group hover:border-violetAccent/50 transition-all duration-500">
+          <div class="absolute -right-12 -top-12 w-40 h-40 bg-violetAccent/10 rounded-full blur-3xl group-hover:bg-violetAccent/20 transition-all"></div>
+          <div>
+            <span class="font-mono text-xs text-violetAccent tracking-widest">WORLD 01</span>
+            <h3 class="font-syne text-3xl font-extrabold text-white mt-2 mb-6">SOCIAL</h3>
+            <p class="text-slate-400 text-sm font-light mb-8 leading-relaxed">
+              Transforming social channels into luxury brand statement environments. High-impact content systems engineered for visual dominance and audience growth.
+            </p>
+            <ul class="space-y-3 font-mono text-xs text-slate-300">
+              <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-violetAccent"></i><span>Social Campaign Strategy</span></li>
+              <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-violetAccent"></i><span>Content Planning & Systems</span></li>
+              <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-violetAccent"></i><span>Editorial Social Design</span></li>
+              <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-violetAccent"></i><span>Short-Form Visual Direction</span></li>
+            </ul>
+          </div>
+          <div class="mt-12 pt-6 border-t border-white/10 font-mono text-xs text-slate-500">
+            FOCUS: ENGAGEMENT • IDENTITY • IMPACT
+          </div>
+        </div>
+
+        <!-- WORLD 02 - VIDEO -->
+        <div class="glass-card rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden group hover:border-cyberCyan/50 transition-all duration-500">
+          <div class="absolute -right-12 -top-12 w-40 h-40 bg-cyberCyan/10 rounded-full blur-3xl group-hover:bg-cyberCyan/20 transition-all"></div>
+          <div>
+            <span class="font-mono text-xs text-cyberCyan tracking-widest">WORLD 02</span>
+            <h3 class="font-syne text-3xl font-extrabold text-white mt-2 mb-6">VIDEO</h3>
+            <p class="text-slate-400 text-sm font-light mb-8 leading-relaxed">
+              Cinematic storytelling, short-form reel mastery, motion graphics, and high-precision color grading crafted to command total viewer attention.
+            </p>
+            <ul class="space-y-3 font-mono text-xs text-slate-300">
+              <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-cyberCyan"></i><span>Cinematic Reel Editing</span></li>
+              <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-cyberCyan"></i><span>Motion Graphics & FX</span></li>
+              <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-cyberCyan"></i><span>Professional Color Grading</span></li>
+              <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-cyberCyan"></i><span>Commercial Brand Trailers</span></li>
+            </ul>
+          </div>
+          <div class="mt-12 pt-6 border-t border-white/10 font-mono text-xs text-slate-500">
+            FOCUS: CINEMA • RETENTION • MOTION
+          </div>
+        </div>
+
+        <!-- WORLD 03 - WEB -->
+        <div class="glass-card rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden group hover:border-champagne/50 transition-all duration-500">
+          <div class="absolute -right-12 -top-12 w-40 h-40 bg-champagne/10 rounded-full blur-3xl group-hover:bg-champagne/20 transition-all"></div>
+          <div>
+            <span class="font-mono text-xs text-champagne tracking-widest">WORLD 03</span>
+            <h3 class="font-syne text-3xl font-extrabold text-white mt-2 mb-6">WEB</h3>
+            <p class="text-slate-400 text-sm font-light mb-8 leading-relaxed">
+              Cutting-edge frontend development, interactive WebGL experiences, editorial UI/UX design, and performant web solutions built to be remembered.
+            </p>
+            <ul class="space-y-3 font-mono text-xs text-slate-300">
+              <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-champagne"></i><span>Custom Web Architecture</span></li>
+              <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-champagne"></i><span>Interactive UI/UX Design</span></li>
+              <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-champagne"></i><span>WebGL & 3D Web Experiences</span></li>
+              <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-champagne"></i><span>High-Performance React/Next</span></li>
+            </ul>
+          </div>
+          <div class="mt-12 pt-6 border-t border-white/10 font-mono text-xs text-slate-500">
+            FOCUS: INNOVATION • SPEED • IMMERSION
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEHIND THE X (ABOUT SECTION) WITH OWNER IMAGE INTEGRATION -->
+  <section id="about" class="py-24 md:py-32 relative z-20 px-6 md:px-12 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <!-- Owner Portrait Frame -->
+      <div class="lg:col-span-5 relative group">
+        <div class="absolute -inset-1 bg-gradient-to-r from-violetAccent via-cyberCyan to-champagne rounded-3xl blur opacity-30 group-hover:opacity-75 transition duration-1000"></div>
+        <div class="relative rounded-3xl overflow-hidden border border-white/10 bg-surface">
+          <!-- Attached Owner Image -->
+          <img src="Gemini_Generated_Image_a5h2kaa5h2kaa5h2.jpg" alt="LASHARI X — Founder & Creative Lead" class="w-full h-auto object-cover filter contrast-105 group-hover:scale-105 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-60"></div>
+          <div class="absolute bottom-6 left-6 right-6 p-4 glass-card rounded-xl border border-white/10">
+            <p class="font-syne text-lg font-bold text-white">RAHMAT LASHARI</p>
+            <p class="font-mono text-xs text-cyberCyan">FOUNDER & CREATIVE DIRECTOR</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Narrative Text -->
+      <div class="lg:col-span-7 flex flex-col justify-center">
+        <div class="font-mono text-xs text-champagne tracking-widest uppercase mb-2">// 03 — BEHIND THE X</div>
+        <h2 class="font-syne text-4xl sm:text-6xl font-extrabold text-white uppercase tracking-tight mb-8">
+          DIGITAL ARCHITECT. <br />
+          <span class="text-outline">STORYTELLER.</span>
+        </h2>
+        <blockquote class="text-xl sm:text-2xl text-slate-200 font-light leading-relaxed mb-8 border-l-2 border-violetAccent pl-6 italic">
+          "I build digital experiences at the intersection of design, technology, and cinematic storytelling — engineered to break scroll patterns and leave an indelible impression."
+        </blockquote>
+        <p class="text-slate-400 text-sm sm:text-base leading-relaxed mb-10 font-sans">
+          LASHARI X is an elite digital creative studio operating from Pakistan to clients globally. With deep mastery in video editing, social media campaign design, and modern frontend web engineering, every project is treated as an art-directed exhibition.
+        </p>
+
+        <!-- Dynamic Studio Metadata Stats -->
+        <div class="grid grid-cols-3 gap-6 border-t border-white/10 pt-8 font-mono">
+          <div>
+            <div class="text-3xl sm:text-4xl font-extrabold font-syne text-white">100%</div>
+            <div class="text-[10px] sm:text-xs text-slate-500 uppercase mt-1">CLIENT DEDICATION</div>
+          </div>
+          <div>
+            <div class="text-3xl sm:text-4xl font-extrabold font-syne text-cyberCyan">03</div>
+            <div class="text-[10px] sm:text-xs text-slate-500 uppercase mt-1">CORE PILLARS</div>
+          </div>
+          <div>
+            <div class="text-3xl sm:text-4xl font-extrabold font-syne text-violetAccent">3D/DEV</div>
+            <div class="text-[10px] sm:text-xs text-slate-500 uppercase mt-1">ADVANCED TECH</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS & TOOLS ECOSYSTEM CANVAS -->
+  <section id="skills" class="py-24 md:py-32 bg-charcoal/40 border-y border-white/5 relative z-20 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <div class="font-mono text-xs text-violetAccent tracking-widest uppercase mb-2">// 04 — TECHNICAL & CREATIVE ECOSYSTEM</div>
+        <h2 class="font-syne text-4xl sm:text-6xl font-extrabold text-white uppercase tracking-tight">SKILLS CONSTELLATION</h2>
+        <p class="text-slate-400 text-sm max-w-lg mx-auto mt-4 font-light">Interactive node web representing software, code frameworks, and artistic capabilities.</p>
+      </div>
+
+      <!-- Canvas Interactive Constellation -->
+      <div class="relative w-full h-[450px] bg-surface/50 rounded-3xl border border-white/10 overflow-hidden" id="skills-canvas-container">
+        <canvas id="skillsCanvas" class="w-full h-full block"></canvas>
+        <div class="absolute bottom-4 left-6 font-mono text-[10px] text-slate-500 uppercase">INTERACTIVE NETWORK • HOVER NODES TO DISCOVER</div>
+      </div>
+
+      <!-- Tools Badges Arrangement -->
+      <div class="mt-12 flex flex-wrap justify-center gap-4 font-mono text-xs text-slate-300">
+        <span class="px-4 py-2 glass-card rounded-xl border border-white/10 hover:border-violetAccent transition-colors">ADOBE PREMIERE PRO</span>
+        <span class="px-4 py-2 glass-card rounded-xl border border-white/10 hover:border-violetAccent transition-colors">AFTER EFFECTS</span>
+        <span class="px-4 py-2 glass-card rounded-xl border border-white/10 hover:border-cyberCyan transition-colors">FIGMA & UI/UX</span>
+        <span class="px-4 py-2 glass-card rounded-xl border border-white/10 hover:border-cyberCyan transition-colors">REACT & NEXT.JS</span>
+        <span class="px-4 py-2 glass-card rounded-xl border border-white/10 hover:border-champagne transition-colors">THREE.JS / WEBGL</span>
+        <span class="px-4 py-2 glass-card rounded-xl border border-white/10 hover:border-champagne transition-colors">TAILWIND CSS</span>
+        <span class="px-4 py-2 glass-card rounded-xl border border-white/10 hover:border-magentaAccent transition-colors">DAVINCI RESOLVE</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA & CONTACT SECTION -->
+  <section id="contact" class="py-24 md:py-36 relative z-20 px-6 md:px-12 max-w-7xl mx-auto text-center">
+    <div class="inline-flex items-center space-x-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full mb-8">
+      <span class="w-2 h-2 rounded-full bg-violetAccent"></span>
+      <span class="font-mono text-xs tracking-widest text-slate-300 uppercase">AVAILABLE FOR GLOBAL PROJECTS</span>
+    </div>
+
+    <h2 class="font-syne text-5xl sm:text-7xl md:text-8xl font-extrabold text-white uppercase tracking-tight mb-8">
+      LET'S BUILD SOMETHING <br />
+      <span class="bg-clip-text text-transparent bg-gradient-to-r from-violetAccent via-cyberCyan to-champagne">WORTH REMEMBERING.</span>
+    </h2>
+
+    <p class="max-w-xl mx-auto text-slate-400 text-base sm:text-lg font-light mb-12">
+      Ready to transform your brand into a high-converting digital spectacle? Reach out directly via WhatsApp or Email.
+    </p>
+
+    <!-- Direct Contact Actions -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16">
+      <!-- Direct WhatsApp Link -->
+      <a href="https://wa.me/923196971470" target="_blank" rel="noopener" class="w-full sm:w-auto inline-flex items-center justify-center space-x-3 bg-gradient-to-r from-violetAccent to-cyberCyan text-obsidian font-syne font-bold px-8 py-4 rounded-full text-sm uppercase tracking-wider hover:scale-105 transition-transform shadow-lg shadow-violetAccent/20" data-cursor="CHAT">
+        <i data-lucide="message-circle" class="w-5 h-5 fill-current"></i>
+        <span>WHATSAPP: +92 319 6971470</span>
+      </a>
+
+      <!-- Direct Email Link -->
+      <a href="mailto:lashari0923@gmail.com" class="w-full sm:w-auto inline-flex items-center justify-center space-x-3 bg-white/5 border border-white/10 text-white font-syne font-bold px-8 py-4 rounded-full text-sm uppercase tracking-wider hover:bg-white/10 hover:border-white/20 transition-all" data-cursor="EMAIL">
+        <i data-lucide="mail" class="w-5 h-5"></i>
+        <span>LASHARI0923@GMAIL.COM</span>
+      </a>
+    </div>
+
+    <!-- Final X Monogram Exit Mark -->
+    <div class="mt-20 flex flex-col items-center">
+      <div class="font-syne text-8xl md:text-9xl font-black text-slate-800 hover:text-violetAccent transition-colors duration-700 cursor-pointer select-none">
+        LX
+      </div>
+      <p class="font-mono text-xs text-slate-600 uppercase tracking-widest mt-2">LASHARI X — ALL RIGHTS RESERVED © 2026</p>
+    </div>
+  </section>
+
+  <!-- FLOATING WHATSAPP BUTTON FOR MOBILE & DESKTOP ACCESSIBILITY -->
+  <a href="https://wa.me/923196971470" target="_blank" rel="noopener" class="fixed bottom-6 right-6 z-40 bg-emerald-500 hover:bg-emerald-400 text-obsidian p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 flex items-center justify-center" aria-label="Direct WhatsApp Contact" data-cursor="CHAT">
+    <i data-lucide="message-circle" class="w-6 h-6 fill-current"></i>
+  </a>
+
+  <!-- FOOTER -->
+  <footer class="py-8 bg-obsidian border-t border-white/5 relative z-20 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-slate-500 space-y-4 sm:space-y-0">
+      <div>LASHARI X • DIGITAL CREATIVE STUDIO</div>
+      <div>RAWALPINDI, PAKISTAN</div>
+      <div>SOCIAL • VIDEO • WEB</div>
+    </div>
+  </footer>
+
+  <script>
+    /* ==========================================================================
+       01. DATA CONFIGURATION & CASE STUDIES DATA
+       ========================================================================== */
+    const CASE_STUDIES = [
+      {
+        title: "AETHERIA DIGITAL REALM",
+        category: "WEB DEVELOPMENT",
+        year: "2026",
+        image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop",
+        challenge: "To design a web experience that felt less like a standard e-commerce page and more like visiting an exclusive digital museum.",
+        strategy: "Built a custom Three.js WebGL viewport combined with fluid layout transitions and ambient sound design triggers.",
+        execution: "React 18, Three.js, Custom Shaders, Tailwind CSS, GSAP ScrollTrigger.",
+        result: "Achieved an average session time of 4.2 minutes and won 3 digital design recognitions."
+      },
+      {
+        title: "NEON VELOCITY CAMPAIGN",
+        category: "VIDEO & REELS",
+        year: "2025",
+        image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=1200&auto=format&fit=crop",
+        challenge: "Cut through short-form social noise for an electric automotive launch.",
+        strategy: "High-octane pacing, tailored sound design, custom kinetic typography, and DaVinci film color grading.",
+        execution: "Adobe Premiere Pro, After Effects motion tracking, customized grain filters.",
+        result: "Over 2.4 million views across social platforms within the first 14 days."
+      },
+      {
+        title: "LUMINA BRAND SOCIAL ECOSYSTEM",
+        category: "SOCIAL CAMPAIGN",
+        year: "2026",
+        image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1200&auto=format&fit=crop",
+        challenge: "Unify fragmented social channels into a sleek, editorial aesthetic.",
+        strategy: "Created an adaptive grid visual system, typography templates, and high-converting short-form video hooks.",
+        execution: "Figma design system, Photoshop, After Effects templates.",
+        result: "+400% organic engagement increase and unified brand equity."
+      },
+      {
+        title: "QUANTUM ARCHITECTURE PORTAL",
+        category: "WEB & INTERACTION",
+        year: "2025",
+        image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop",
+        challenge: "Architectural firm needed a high-performance portfolio reflecting structural precision.",
+        strategy: "Clean asymmetric grid, smooth scroll hijacking prevention, high-resolution image masks.",
+        execution: "Next.js, Tailwind CSS, Framer Motion logic.",
+        result: "Sub-second loading time with 100/100 Lighthouse performance score."
+      }
+    ];
+
+    /* ==========================================================================
+       02. INITIALIZATION & LUCIDE ICONS
+       ========================================================================== */
+    window.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      initPreloader();
+      initCustomCursor();
+      initMobileMenu();
+      initHero3D();
+      initPortfolioFilters();
+      initSkillsCanvas();
+      initGSAPAnimations();
+    });
+
+    /* ==========================================================================
+       03. PRELOADER LOGIC
+       ========================================================================== */
+    function initPreloader() {
+      const loaderProgress = document.getElementById('loader-progress');
+      const loaderNum = document.getElementById('loader-num');
+      const preloader = document.getElementById('preloader');
+      let count = 0;
+
+      const interval = setInterval(() => {
+        count += Math.floor(Math.random() * 12) + 1;
+        if (count >= 100) {
+          count = 100;
+          clearInterval(interval);
+          setTimeout(() => {
+            preloader.classList.add('opacity-0');
+            setTimeout(() => {
+              preloader.style.display = 'none';
+            }, 1000);
+          }, 300);
+        }
+        loaderProgress.style.width = count + '%';
+        loaderNum.innerText = count + '%';
+      }, 50);
+    }
+
+    /* ==========================================================================
+       04. CUSTOM MAGNETIC CURSOR
+       ========================================================================== */
+    function initCustomCursor() {
+      const dot = document.getElementById('cursor-dot');
+      const follower = document.getElementById('cursor-follower');
+      const text = document.getElementById('cursor-text');
+
+      if (!dot || !follower) return;
+
+      let mouseX = 0, mouseY = 0;
+      let followerX = 0, followerY = 0;
+
+      window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        dot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
+      });
+
+      function animateCursor() {
+        followerX += (mouseX - followerX) * 0.15;
+        followerY += (mouseY - followerY) * 0.15;
+        follower.style.transform = `translate(${followerX}px, ${followerY}px) translate(-50%, -50%)`;
+        requestAnimationFrame(animateCursor);
+      }
+      animateCursor();
+
+      // Contextual Cursor Interactions
+      document.querySelectorAll('[data-cursor]').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          const val = el.getAttribute('data-cursor');
+          text.innerText = val;
+          text.classList.remove('opacity-0');
+          follower.classList.add('w-20', 'h-20', 'bg-white/10', 'backdrop-blur-sm', 'border-violetAccent');
+        });
+        el.addEventListener('mouseleave', () => {
+          text.classList.add('opacity-0');
+          follower.classList.remove('w-20', 'h-20', 'bg-white/10', 'backdrop-blur-sm', 'border-violetAccent');
+        });
+      });
+    }
+
+    /* ==========================================================================
+       05. MOBILE NAVIGATION MENU
+       ========================================================================== */
+    function initMobileMenu() {
+      const btn = document.getElementById('mobile-menu-btn');
+      const menu = document.getElementById('mobile-nav');
+      const openIcon = document.getElementById('menu-icon-open');
+      const closeIcon = document.getElementById('menu-icon-close');
+      const links = document.querySelectorAll('.mobile-link');
+
+      let isOpen = false;
+
+      function toggle() {
+        isOpen = !isOpen;
+        if (isOpen) {
+          menu.classList.remove('opacity-0', 'pointer-events-none');
+          openIcon.classList.add('hidden');
+          closeIcon.classList.remove('hidden');
+        } else {
+          menu.classList.add('opacity-0', 'pointer-events-none');
+          openIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+        }
+      }
+
+      btn.addEventListener('click', toggle);
+      links.forEach(l => l.addEventListener('click', () => { if (isOpen) toggle(); }));
+    }
+
+    /* ==========================================================================
+       06. THREE.JS 3D LX HERO SCULPTURE
+       ========================================================================== */
+    function initHero3D() {
+      const container = document.getElementById('hero-3d-container');
+      if (!container) return;
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+      camera.position.z = 5;
+
+      const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      container.appendChild(renderer.domElement);
+
+      // Create Futuristic LX Metallic Geometry Group
+      const lxGroup = new THREE.Group();
+
+      // Material with Violet / Cyan Chrome Reflectivity
+      const chromeMaterial = new THREE.MeshPhysicalMaterial({
+        color: 0x15151c,
+        metalness: 0.9,
+        roughness: 0.1,
+        clearcoat: 1.0,
+        clearcoatRoughness: 0.1,
+        wireframe: false,
+      });
+
+      // Geometric Abstract Torus Knot symbolizing continuous digital innovation
+      const geometry = new THREE.TorusKnotGeometry(1.2, 0.35, 128, 32);
+      const sculpture = new THREE.Mesh(geometry, chromeMaterial);
+      lxGroup.add(sculpture);
+
+      // Ambient & Directional Lights
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+      scene.add(ambientLight);
+
+      const violetLight = new THREE.PointLight(0x8A2BE2, 4, 10);
+      violetLight.position.set(3, 3, 3);
+      scene.add(violetLight);
+
+      const cyanLight = new THREE.PointLight(0x00F0FF, 4, 10);
+      cyanLight.position.set(-3, -3, 3);
+      scene.add(cyanLight);
+
+      scene.add(lxGroup);
+
+      // Mouse Parallax Effect
+      let targetX = 0, targetY = 0;
+      window.addEventListener('mousemove', (e) => {
+        targetX = (e.clientX / window.innerWidth - 0.5) * 1.5;
+        targetY = (e.clientY / window.innerHeight - 0.5) * 1.5;
+      });
+
+      // Animation Loop
+      function animate() {
+        requestAnimationFrame(animate);
+
+        sculpture.rotation.x += 0.005;
+        sculpture.rotation.y += 0.008;
+
+        lxGroup.rotation.y += (targetX - lxGroup.rotation.y) * 0.05;
+        lxGroup.rotation.x += (targetY - lxGroup.rotation.x) * 0.05;
+
+        renderer.render(scene, camera);
+      }
+      animate();
+
+      // Window Resize Listener
+      window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      });
+    }
+
+    /* ==========================================================================
+       07. PORTFOLIO FILTERS & MODAL CASE STUDY
+       ========================================================================== */
+    function initPortfolioFilters() {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const projects = document.querySelectorAll('.project-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => {
+            b.classList.remove('border-violetAccent', 'bg-violetAccent/20', 'text-white');
+            b.classList.add('border-white/10', 'text-slate-400');
+          });
+          btn.classList.add('border-violetAccent', 'bg-violetAccent/20', 'text-white');
+          btn.classList.remove('border-white/10', 'text-slate-400');
+
+          const filter = btn.getAttribute('data-filter');
+          projects.forEach(p => {
+            if (filter === 'all' || p.getAttribute('data-category') === filter) {
+              p.style.display = 'block';
+            } else {
+              p.style.display = 'none';
+            }
+          });
+        });
+      });
+    }
+
+    function openCaseStudy(index) {
+      const data = CASE_STUDIES[index];
+      const modal = document.getElementById('case-study-modal');
+      const content = document.getElementById('modal-content');
+
+      if (!data || !modal) return;
+
+      content.innerHTML = `
+        <div class="font-mono text-xs text-cyberCyan uppercase tracking-widest mb-2">// CASE STUDY ${index + 1}</div>
+        <h2 class="font-syne text-4xl sm:text-6xl font-extrabold text-white uppercase mb-4">${data.title}</h2>
+        <div class="flex items-center space-x-4 font-mono text-xs text-slate-400 mb-8 border-b border-white/10 pb-6">
+          <span>CATEGORY: ${data.category}</span>
+          <span>•</span>
+          <span>YEAR: ${data.year}</span>
+        </div>
+
+        <img src="${data.image}" alt="${data.title}" class="w-full h-80 md:h-[450px] object-cover rounded-2xl mb-12 border border-white/10" />
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-slate-300 font-sans mb-12">
+          <div class="bg-surface p-6 rounded-2xl border border-white/5">
+            <h4 class="font-syne text-lg font-bold text-white mb-2">01 — THE CHALLENGE</h4>
+            <p class="text-sm font-light text-slate-400 leading-relaxed">${data.challenge}</p>
+          </div>
+          <div class="bg-surface p-6 rounded-2xl border border-white/5">
+            <h4 class="font-syne text-lg font-bold text-white mb-2">02 — STRATEGY & DIRECTION</h4>
+            <p class="text-sm font-light text-slate-400 leading-relaxed">${data.strategy}</p>
+          </div>
+          <div class="bg-surface p-6 rounded-2xl border border-white/5">
+            <h4 class="font-syne text-lg font-bold text-white mb-2">03 — TECH & TOOLS EXECUTION</h4>
+            <p class="text-sm font-light text-slate-400 leading-relaxed">${data.execution}</p>
+          </div>
+          <div class="bg-surface p-6 rounded-2xl border border-white/5">
+            <h4 class="font-syne text-lg font-bold text-white mb-2">04 — VERIFIED IMPACT</h4>
+            <p class="text-sm font-light text-cyberCyan leading-relaxed">${data.result}</p>
+          </div>
+        </div>
+
+        <div class="text-center pt-6">
+          <a href="https://wa.me/923196971470" target="_blank" class="inline-flex items-center space-x-3 bg-violetAccent hover:bg-violetAccent/80 text-white font-syne font-bold px-8 py-4 rounded-full text-xs uppercase tracking-wider transition-colors">
+            <span>DISCUSS SIMILAR PROJECT</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      `;
+
+      lucide.createIcons();
+      modal.classList.remove('hidden');
+      setTimeout(() => {
+        modal.classList.remove('opacity-0');
+      }, 10);
+    }
+
+    function closeCaseStudy() {
+      const modal = document.getElementById('case-study-modal');
+      if (!modal) return;
+      modal.classList.add('opacity-0');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+      }, 300);
+    }
+
+    /* ==========================================================================
+       08. INTERACTIVE SKILLS CONSTELLATION CANVAS
+       ========================================================================== */
+    function initSkillsCanvas() {
+      const canvas = document.getElementById('skillsCanvas');
+      const container = document.getElementById('skills-canvas-container');
+      if (!canvas || !container) return;
+
+      const ctx = canvas.getContext('2d');
+      let width = canvas.width = container.clientWidth;
+      let height = canvas.height = container.clientHeight;
+
+      const SKILLS = [
+        { name: 'VIDEO EDITING', x: 0.2, y: 0.3 },
+        { name: 'SOCIAL STRATEGY', x: 0.4, y: 0.2 },
+        { name: 'WEB DEVELOPMENT', x: 0.7, y: 0.35 },
+        { name: 'REACT / NEXT.JS', x: 0.8, y: 0.65 },
+        { name: 'THREE.JS / WEBGL', x: 0.5, y: 0.75 },
+        { name: 'UI/UX DESIGN', x: 0.25, y: 0.7 },
+        { name: 'MOTION GRAPHICS', x: 0.45, y: 0.5 },
+      ];
+
+      let nodes = SKILLS.map(s => ({
+        name: s.name,
+        x: s.x * width,
+        y: s.y * height,
+        vx: (Math.random() - 0.5) * 0.5,
+        vy: (Math.random() - 0.5) * 0.5,
+        radius: 4
+      }));
+
+      function draw() {
+        ctx.clearRect(0, 0, width, height);
+
+        // Draw connections
+        ctx.strokeStyle = 'rgba(138, 43, 226, 0.15)';
+        ctx.lineWidth = 1;
+        for (let i = 0; i < nodes.length; i++) {
+          for (let j = i + 1; j < nodes.length; j++) {
+            ctx.beginPath();
+            ctx.moveTo(nodes[i].x, nodes[i].y);
+            ctx.lineTo(nodes[j].x, nodes[j].y);
+            ctx.stroke();
+          }
+        }
+
+        // Render Nodes
+        nodes.forEach(node => {
+          node.x += node.vx;
+          node.y += node.vy;
+
+          if (node.x < 20 || node.x > width - 20) node.vx *= -1;
+          if (node.y < 20 || node.y > height - 20) node.vy *= -1;
+
+          // Glowing Node Dot
+          ctx.beginPath();
+          ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+          ctx.fillStyle = '#00F0FF';
+          ctx.fill();
+
+          // Label
+          ctx.font = '10px "JetBrains Mono"';
+          ctx.fillStyle = '#E2E8F0';
+          ctx.fillText(node.name, node.x + 10, node.y + 4);
+        });
+
+        requestAnimationFrame(draw);
+      }
+      draw();
+
+      window.addEventListener('resize', () => {
+        width = canvas.width = container.clientWidth;
+        height = canvas.height = container.clientHeight;
+      });
+    }
+
+    /* ==========================================================================
+       09. GSAP SCROLL & HERO REVEAL ANIMATIONS
+       ========================================================================== */
+    function initGSAPAnimations() {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Hero Elements Reveal
+      gsap.from('[data-gsap="hero-title-1"]', { duration: 1.2, y: 50, opacity: 0, delay: 0.5, ease: 'power4.out' });
+      gsap.from('[data-gsap="hero-title-2"]', { duration: 1.4, scale: 0.8, opacity: 0, delay: 0.7, ease: 'back.out(1.7)' });
+      gsap.from('[data-gsap="fade-up"]', { duration: 1, y: 30, opacity: 0, delay: 1, ease: 'power3.out' });
+      gsap.from('[data-gsap="fade-up-delay"]', { duration: 1, y: 30, opacity: 0, delay: 1.2, ease: 'power3.out' });
+    }
+  </script>
+</body>
+</html>
